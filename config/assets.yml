@@ -1,0 +1,15 @@
+package_assets: on
+embed_assets: off
+compress_assets: on
+javascript_compressor: yui
+gzip_assets: off
+
+javascripts:
+  defaults:
+    - public/javascripts/jquery.min.js
+    - public/javascripts/rails.js
+    - public/javascripts/app.js
+
+stylesheets:
+  defaults:
+    - public/stylesheets/app.css
