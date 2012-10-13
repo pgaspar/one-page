@@ -1,10 +1,5 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%= user.email %> </p>
-<% end %>
+<h2>One Page Thingy</h2>
 
-<% if signed_in? %>
-  <%= link_to 'Logout', :destroy_user_session, :method => :delete %>
-<% else %>
-  <%= link_to 'Sign In', :new_user_session %>
-<% end %>
+<p>Ever needed to quickly create a simple website? Worry no more!</p>
+
+<%= link_to 'Create a Page', :new_page %>

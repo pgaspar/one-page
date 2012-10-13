@@ -17,6 +17,10 @@ class Page
   validates :title, 	:presence => true
   validates :subtitle, 	:length => { :maximum => 500 }
 
+  def to_param
+    slug
+  end
+
   def self.with_slug(slug)
     first(:conditions => {:slug => slug})
   end
