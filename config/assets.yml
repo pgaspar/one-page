@@ -7,6 +7,7 @@ gzip_assets: off
 javascripts:
   defaults:
     - public/javascripts/jquery.min.js
+    - public/javascripts/bootstrap.min.js
     - public/javascripts/rails.js
     - public/javascripts/app.js
 

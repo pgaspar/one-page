@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.json
   def new
-    @page = Page.new
+    @page = Page.new_with_content
 
     respond_to do |format|
       format.html # new.html.erb
