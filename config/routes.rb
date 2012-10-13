@@ -1,6 +1,10 @@
 Railsrumble::Application.routes.draw do
   
-  devise_for :users
+  resources :pages
+
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
 
   root :to => "home#index"
 

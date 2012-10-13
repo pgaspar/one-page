@@ -6,6 +6,7 @@ class Page
   field :title
   field :subtitle
 
+  belongs_to :user
   embeds_many :sections
   
   index :slug, :unique => true, :background => true
@@ -16,6 +17,10 @@ class Page
   validates :title, 	:presence => true
   validates :subtitle, 	:length => { :maximum => 500 }
 
+  def to_param
+    slug
+  end
+
   def self.with_slug(slug)
     first(:conditions => {:slug => slug})
   end
@@ -23,5 +28,4 @@ class Page
   def self.with_slug!(slug)
     with_slug(slug) or raise Mongoid::Errors::DocumentNotFound.new(Page,slug)
   end
-
 end
