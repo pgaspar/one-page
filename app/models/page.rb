@@ -6,6 +6,7 @@ class Page
   field :title
   field :subtitle
 
+  belongs_to :user
   embeds_many :sections
   
   index :slug, :unique => true, :background => true
