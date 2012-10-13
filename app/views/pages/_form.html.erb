@@ -1,4 +1,4 @@
-<%= form_for(@page) do |f| %>
+<%= form_for(@page, :html => { :multipart => true }) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -19,7 +19,9 @@
     <%= f.text_field :title %><br />
 
     <%= f.label :subtitle, "Subtitle: " %>
-    <%= f.text_field :subtitle %>
+    <%= f.text_field :subtitle %><br />
+
+    <%= f.file_field :cover_photo %>
   </fieldset>
 
   <div class="actions">
