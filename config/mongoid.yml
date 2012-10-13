@@ -1,0 +1,17 @@
+development:
+  uri: mongodb://one-page:page12@alex.mongohq.com:10016/one-page
+  autocreate_indexes: true
+  persist_in_safe_mode: true
+  identity_map_enabled: true
+
+test:
+  host: localhost
+  database: bundlr-test
+  persist_in_safe_mode: true
+  autocreate_indexes: true
+
+production:
+  uri: localhost
+  persist_in_safe_mode: true
+  identity_map_enabled: true
+  autocreate_indexes: false
