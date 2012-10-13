@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>Railsrumble</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= include_stylesheets :defaults %>
+  <%= include_javascripts :defaults %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %><p class="notice"><%= notice %></p><% end %>
+  <% if alert %><p class="alert"><%= alert %></p><% end %>
 
   <%= yield %>
 
