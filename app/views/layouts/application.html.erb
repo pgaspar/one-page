@@ -16,7 +16,7 @@
   <hr />
 
   <% if signed_in? %>
-    <%= link_to 'Manage your Pages', :pages %> | <%= link_to 'Logout', :destroy_user_session, :method => :delete %>
+    <%= link_to 'Manage your Pages', :pages %> | <%= link_to 'Logout', :destroy_user_session %>
   <% else %>
     <%= link_to 'Sign In', :new_user_session %>
   <% end %>
