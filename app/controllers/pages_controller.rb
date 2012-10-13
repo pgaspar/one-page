@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show, :new]
 
   # GET /pages
   # GET /pages.json
@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.json
   def new
-    @page = current_user.pages.new
+    @page = Page.new
 
     respond_to do |format|
       format.html # new.html.erb
