@@ -59,6 +59,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    mina (0.2.1)
+      open4
+      rake
     mongo (1.5.2)
       bson (= 1.5.2)
     mongoid (2.4.1)
@@ -127,6 +130,7 @@ DEPENDENCIES
   jammit
   jquery-rails
   json
+  mina
   mongoid (~> 2.4)
   rails (= 3.1.6)
   rush
