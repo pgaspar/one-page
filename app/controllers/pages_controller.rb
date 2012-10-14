@@ -47,7 +47,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, :notice => 'Page was successfully created.' }
-        format.json { puts "hi!"; render :json => @page, :status => :created, :location => @page }
+        format.json { render :json => @page, :status => :created, :location => @page }
       else
         format.html { render :action => "new" }
         format.json { render :json => @page.errors, :status => :unprocessable_entity }
@@ -64,7 +64,7 @@ class PagesController < ApplicationController
       set_destroy_on_missing_sections(@page)
       if @page.update_attributes(params[:page])
         format.html { redirect_to @page, :notice => 'Page was successfully updated.' }
-        format.json { head :ok }
+        format.json { render :json => {} }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @page.errors, :status => :unprocessable_entity }

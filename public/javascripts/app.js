@@ -1,8 +1,8 @@
-var initial_page;
+var saved_page;
 
 $(document).ready(function() {
 
-  initial_page = process_page_from_dom();
+  saved_page = process_page_from_dom();
 
   // UI-UX
 
@@ -100,6 +100,7 @@ $(document).ready(function() {
           window.location = "/pages/" + data.slug;
           //$('header').attr('data-slug', data.slug);
         }
+        saved_page = page;
         console.log('saved.');
       }
     });
@@ -108,6 +109,13 @@ $(document).ready(function() {
   });
 
 });
+
+$(window).bind('beforeunload', function(){
+  if (page_changed()) {
+    return 'There are unsaved changes on this page.';
+  }
+});
+// FUNCTIONS
 
 function process_page_from_dom() {
   var page = {};
@@ -138,5 +146,5 @@ function html_or_edit_form(scope) {
 }
 
 function page_changed() {
-  return JSON.stringify(initial_page) !== JSON.stringify(process_page_from_dom());
+  return JSON.stringify(saved_page) !== JSON.stringify(process_page_from_dom());
 }
