@@ -31,15 +31,13 @@ $(document).ready(function() {
     c = $("section").size();
     var nav_code     = "<li><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
     var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header\"><h1>New Section</h1></div><p class=\"editable\">Write your content here.</p></section>";
-    var form_code    = "<input id=\"page_sections_attributes_"+c+"_title\" name=\"page[sections_attributes]["+c+"][title]\" type=\"hidden\" value=\"New Section\"><input id=\"page_sections_attributes_"+c+"_content\" name=\"page[sections_attributes]["+c+"][content]\" type=\"hidden\" value=\"Write your content here.\">";
 
     $(".nav-list li.add-section").before(nav_code);
     $("#section-container").append(section_code);
-    $('span.form-sections').append(form_code);
   });
 
-  var $leftColor  = $('form input#page_gradient_left').val() || '#020031';
-  var $rightColor = $('form input#page_gradient_right').val() || '#6D3353';
+  var $leftColor  = $('header').attr('data-gradient-left') || '#020031';
+  var $rightColor = $('header').attr('data-gradient-right') || '#6D3353';
 
   function updateGradient() {
     $('.jumbotron').css('background-color', $leftColor); /* Old browsers */
@@ -51,8 +49,8 @@ $(document).ready(function() {
     $('.jumbotron').css('background-image', 'linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* W3C */
     $('.jumbotron').css('filter', 'progid:DXImageTransform.Microsoft.gradient( startColorstr=\''+$leftColor+'\', endColorstr=\''+$rightColor+'\',GradientType=1 )'); /* IE6-9 fallback on horizontal gradient */
 
-    $('form input#page_gradient_left').val($leftColor);
-    $('form input#page_gradient_right').val($rightColor);
+    $('header').attr('data-gradient-left', $leftColor);
+    $('header').attr('data-gradient-right', $rightColor);
   };
 
   updateGradient();
@@ -82,7 +80,44 @@ $(document).ready(function() {
   });
 
   $('#save-link').on('click', function(e) {
-    $('form').submit();
+    
+    var page_slug = $('header').attr('data-slug');
+    var page = process_page_from_dom();
+
+    $.ajax({
+      type: "PUT",
+      url: "/pages/" + page_slug + '.json',
+      data: { page: page }
+    }).done(function( msg ) {
+      alert( "Data Saved: " + msg );
+    });
+
     e.preventDefault();
   });
+
 });
+
+function process_page_from_dom() {
+  var page = {};
+  var page_header = $('header');
+
+  page.title = html_or_edit_form($('header h1'));
+  page.subtitle = html_or_edit_form($('header p'));
+  page.gradient_left = page_header.attr('data-gradient-left');
+  page.gradient_right = page_header.attr('data-gradient-right');
+
+  page.sections = [];
+  $('#section-container section').each(function(){
+    page.sections.push({
+      id: $(this).attr('data-id'),
+      title: html_or_edit_form($('h2',this)),
+      content: html_or_edit_form($('p.lead',this))
+    });
+  });
+
+  return page;
+}
+
+function html_or_edit_form(scope) {
+  return $('textarea',scope).html() || $('input',scope).val() || scope.html();
+}

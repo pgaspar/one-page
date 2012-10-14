@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<header class="jumbotron subhead" id="overview">
+<header class="jumbotron subhead" id="overview" data-slug="<%= @page.slug %>" data-gradient-left="<%= @page.gradient_left %>" data-gradient-right="<%= @page.gradient_right %>">
   <div class="container">
     <h1 class="editable"><%= @page.title %></h1>
     <p class="lead editable"><%= @page.subtitle %></p>
@@ -26,7 +26,7 @@
 <div class="container">
   <div class="row">
     <div class="span3 page-sidebar">
-      <ul class="nav nav-list page-sidenav" data-spy="affix" data-offset-top="220">
+      <ul class="nav nav-list page-sidenav span3" data-spy="affix" data-offset-top="220">
         <% @page.sections.each_with_index do |section, section_index| %>
           <li>
             <a href="#section-<%= section_index %>">
@@ -43,7 +43,7 @@
     </div>
     <div class="span9" id="section-container">
       <% @page.sections.each_with_index do |section, section_index| %>
-        <section id="section-<%= section_index %>">
+        <section id="section-<%= section_index %>" data-id="<%= section.id %>">
           <div class="page-header">
             <h2 class="editable"><%= section.title %></h2>
           </div>
@@ -55,18 +55,3 @@
     </div>
   </div>
 </div>
-
-<%= form_for(@page, :style => "display: none") do |f| %>
-  <%= f.hidden_field :gradient_left %>
-  <%= f.hidden_field :gradient_right %>
-  <%= f.hidden_field :slug, :value => @page.slug %>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :subtitle %>
-  
-  <span class="form-sections">
-    <%= f.fields_for :sections, @page.sections do |s| %>
-      <%= s.hidden_field :title %>
-      <%= s.hidden_field :content %>
-    <% end %>
-  </span>
-<% end %>

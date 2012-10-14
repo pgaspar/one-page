@@ -54,7 +54,7 @@ class Page
   private
 
   def set_slug
-    self[:slug] = get_new_slug
+    self[:slug] = get_new_slug unless self[:slug]
   end
 
   def get_new_slug
