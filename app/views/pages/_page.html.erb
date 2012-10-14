@@ -4,9 +4,9 @@
 <div id="account-menu">
   <ul class="unstyled">
     <% if signed_in? %>
-      <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
+      <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-edit"></i></a></li>
       <li><a href="#" rel="tooltip" id="save-link" data-placement="left" data-original-title="Save page"><i class="icon-save"></i></a></li>
-      <li><a href="<%= pages_url() %>" rel="tooltip" data-placement="left" data-original-title="Manage pages"><i class="icon-file"></i></a></li>
+      <li><a href="<%= pages_path %>" rel="tooltip" data-placement="left" data-original-title="Manage pages"><i class="icon-file"></i></a></li>
       <li><a href="<%= destroy_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Logout"><i class="icon-off"></i></a></li>
     <% else %>
       <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
@@ -37,7 +37,7 @@
             <li>
               <div class="remove-section"><b class="icon-remove"></b></div>
               <a href="#section-<%= section_index %>">
-                <i class="icon-chevron-right"></i> <%= section.title %>
+                <i class="icon-chevron-right"></i> <span><%= section.title %></span>
               </a>
             </li>
           <% end %>
@@ -55,7 +55,7 @@
       <% @page.sections.each_with_index do |section, section_index| %>
         <section id="section-<%= section_index %>" data-id="<%= section.id %>">
           <div class="page-header">
-            <h2 class="editable"><%= section.title %></h2>
+            <h2 class="editable" data-target="section-<%= section_index %>"><%= section.title %></h2>
           </div>
           <p class="lead editable">
             <%= section.content %>

@@ -11,13 +11,15 @@ $(document).ready(function() {
 	    	$('#'+target).val(data.value);
 	    },
 	    saveOnBlur: true,
-	    buttons: ''
+	    buttons: '',
+      placeholder: 'Click to Edit'
 	});
 
 	$('h2.editable').inlineEdit({
 	    save: function(e, data) {
 	    	target = $(this).data('target');
-	    	$('#'+target).val(data.value);
+	    	$("a[href=#"+target+"] span").html(data.value);
+        console.log( data );
 	    },
 	    saveOnBlur: true,
 	    buttons: ''
@@ -35,7 +37,7 @@ $(document).ready(function() {
 
   $('.add-section').on('click', function(){
     c = $("section").size();
-    var nav_code     = "<li><div class=\"remove-section\"><b class=\"icon-remove\"></b></div><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
+    var nav_code     = "<li><div class=\"remove-section\"><b class=\"icon-remove\"></b></div><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> <span>New Section</span></a></li>";
     var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header editable\"><h2>New Section</h2></div><p class=\"lead editable\">Write your content here.</p></section>";
 
     $(".nav-list.section-nav").append(nav_code);
@@ -129,7 +131,7 @@ $(document).ready(function() {
       }
 
       $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this).scrollspy('refresh')
+        var $spy = $(this).scrollspy('refresh');
       });
     }
   });
@@ -177,7 +179,7 @@ function process_page_from_dom() {
 }
 
 function html_or_edit_form(scope) {
-  return $.trim($('textarea',scope).html() || $('input',scope).val() || scope.html());
+  return $.trim($('textarea',scope).text() || $('input',scope).val() || scope.text());
 }
 
 function page_changed() {
@@ -191,6 +193,8 @@ function save_page(user) {
   if (user) {
     data.user = user;
   }
+
+  $("i.icon-save").css("color", "gray");
 
   $.ajax({
     type: page_slug ? "PUT" : "POST",
@@ -207,6 +211,7 @@ function save_page(user) {
       saved_page = page;
       $('title').html(page.title);
       $('meta[name=description]').attr('content', page.subtitle);
+      $("i.icon-save").css("color", "limegreen").delay(1000).animate({color: "#FFF"}, 300);
       console.log('saved.');
     },
     error: function(data) {

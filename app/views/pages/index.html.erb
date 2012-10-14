@@ -26,9 +26,8 @@
             <h2><%= page.title %></h2>
           </div>
         <% end %>
-      </a>
         <div class="page-thumb-controls">
-          <%= link_to edit_page_path(page) do %><i class="icon-cog"></i> Edit<% end %>
+          <span><%= page_url(page) %></span>
           <%= link_to page, :method => :delete, :confirm => 'Are your sure you want to delete this page? There is no turning back!' do %><i class="icon-trash"></i> Delete<% end %>
         </div>
       </div>
