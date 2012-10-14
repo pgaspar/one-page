@@ -233,7 +233,7 @@ $.inlineEdit.prototype = {
         }
 
         this.timer = window.setTimeout( function() {
-            self.element.html( self.value() || self.placeholderHtml() );
+            self.element.html( self.value()|| self.placeholderHtml() );
             self.element.removeClass( self.options.hover );
             self.element.removeClass( self.options.editInProgress );
         }, 200 );
@@ -258,6 +258,21 @@ $.inlineEdit.prototype = {
               {key: /</g, value: '&lt;'}, 
               {key: />/g, value: '&gt;'}, 
               {key: /"/g, value: '&quot;'}
+            ],
+            value = s;
+
+        $.each(encoding, function(i,n) {
+          value = value.replace(n.key, n.value);
+        });
+
+        return value;
+    },
+
+    decodeHtml: function( s ) {
+        var encoding = [
+              {key: /&lt;/g, value: '<'}, 
+              {key: /&gt;/g, value: '>'}, 
+              {key: /&quot;/g, value: '"'}
             ],
             value = s;
 
