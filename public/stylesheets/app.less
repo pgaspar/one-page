@@ -4,7 +4,7 @@
 
 
 @editBkg: rgba(0,0,0,0.2);
-@editFocusBkg: rgba(255,200,0,0.2);
+@editFocusBkg: rgba(255,255,255,0.2);
 
 @borderRadius: 5px;
 
@@ -69,4 +69,11 @@ p.edit-in-progress {
 
 .page-sidenav {
 	width: 250px;
+
+	.border-radius(0);
+	.box-shadow(none);
+
+	& > li:first-child > a {
+		.border-radius(0);
+	}
 }

@@ -7549,7 +7549,7 @@ a.badge:hover {
 }
 .edit-in-progress,
 .edit-in-progress:hover {
-  background: rgba(255, 200, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -7581,4 +7581,24 @@ p.edit-in-progress {
 }
 .page-sidenav {
   width: 250px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.page-sidenav  > li:first-child > a {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
