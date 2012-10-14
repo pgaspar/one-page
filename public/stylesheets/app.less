@@ -2,3 +2,67 @@
 @import "bootstrap/responsive";
 @import "bootstrap-helpers";
 
+
+@editBkg: rgba(0,0,0,0.5);
+@editFocusBkg: rgba(45,188,224,0.3);
+
+@borderRadius: 5px;
+
+.jumbotron h1 {
+	line-height: 80px;
+}
+
+.editable {
+	padding: 5px 10px 10px;
+
+	&:hover {
+		background: @editBkg;
+		.border-radius(@borderRadius);
+		cursor: pointer;
+	}
+
+	input, input:active, input:hover, input:focus {
+		background: transparent;
+		
+		height: auto;
+		width: 90%;
+
+		border: 0;
+		.box-shadow(none);
+
+		outline:0px !important;
+	    -webkit-appearance:none;
+	    text-rendering: optimizeLegibility;
+
+	    padding: 0;
+	}
+	
+}
+
+.edit-in-progress, .edit-in-progress:hover {
+	background: @editFocusBkg;
+	.border-radius(@borderRadius);
+}
+
+header h1.editable input, header h1.editable input:active, header h1.editable input:hover, header h1.editable input:focus {
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
+	font-size: 60px;
+	color: #fff;
+}
+
+header p.editable input, header p.editable input:active, header p.editable input:hover, header p.editable input:focus {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 30px;
+	color: #fff;
+}
+
+h1.edit-in-progress { 
+	padding: 2px 10px 4px;
+}
+
+p.edit-in-progress { 
+	padding: 5px 10px 1px;
+}
