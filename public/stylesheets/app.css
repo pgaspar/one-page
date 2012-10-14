@@ -7479,9 +7479,6 @@ a.badge:hover {
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
 }
-.page-sidenav > li.add-section {
-  background-color: whiteSmoke;
-}
 .page-sidenav > .active > a {
   position: relative;
   z-index: 2;
@@ -7581,4 +7578,18 @@ p.edit-in-progress {
 }
 .page-sidenav {
   width: 250px;
+}
+.page-sidenav > li.add-section {
+  background-color: whiteSmoke;
+}
+#account-menu {
+  float: right;
+  background-color: white;
+  width: 400px;
+  height: 100%;
+  text-shadow: none;
+}
+#account-menu li,
+#account-menu a {
+  color: black;
 }
