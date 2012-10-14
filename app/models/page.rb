@@ -59,6 +59,7 @@ class Page
   end
 
   def get_new_slug
+    p title
     new_slug = title[0..100].to_slug
     return new_slug unless Page.with_slug(new_slug)
     count = 2

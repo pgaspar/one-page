@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :new]
+  before_filter :authenticate_user!, :except => [:show, :new, :create]
 
   # GET /pages
   # GET /pages.json
@@ -44,26 +44,33 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
 
-    @page = current_user.pages.new(params[:page])
+    @page = Page.new(params[:page])
 
+    # Try to login
     unless signed_in?
-      @user = User.find_by_email(params[:user][:email])
-      if @user and @user.valid_password?(params[:user][:password])
-        sign_in @user, :event => :authentication
-      else
-        respond_to do |format|
-          format.html { render :action => "new" }
-          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+      @user = User.first(:conditions => {:email => params[:user][:email]})
+      if @user 
+        if @user.valid_password?(params[:user][:password])
+          sign_in @user, :event => :authentication
+        else
+          respond_to do |format|
+            format.html { render :action => "new" }
+            format.json { render :json => 'Unsuccessful login.', :status => :unprocessable_entity }
+          end
+          return
         end
-        return
       end
+    end
+
+    # Try to sign up
+    unless signed_in?
       @user = User.new(params[:user])
       if @user.save
         sign_in @user, :event => :authentication
       else
         respond_to do |format|
           format.html { render :action => "new" }
-          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+          format.json { render :json => 'Invalid sign up information.', :status => :unprocessable_entity }
         end
         return
       end

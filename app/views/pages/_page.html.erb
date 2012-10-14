@@ -9,18 +9,10 @@
       <li><a href="<%= pages_url() %>" rel="tooltip" data-placement="left" data-original-title="Manage pages"><i class="icon-file"></i></a></li>
       <li><a href="<%= destroy_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Logout"><i class="icon-off"></i></a></li>
     <% else %>
-
       <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
-      <li><a href="<%= new_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Sign In"><i class="icon-signin"></i></a></li>
+      <li><a href="#modal-login" rel="tooltip" data-placement="left" data-original-title="Save page" data-toggle="modal"><i class="icon-save"></i></a></li>
     <% end %>
   </ul>
-    <% unless signed_in? %>
-      <%= form_for @user, :url => '' do |f| %>
-        <p><%= f.email_field :email, :placeholder => 'email@example.com' %></p>
-        <p><%= f.password_field :password, :placeholder => '********' %></p>
-        <p><%= f.submit "Login or Sign up" %></p>
-      <% end %>
-    <% end %>
 </div>
 
 <div id="gradient-editor">
@@ -73,3 +65,33 @@
     </div>
   </div>
 </div>
+
+<% unless signed_in? %>
+  <div id="modal-login" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Sign up or Login <small>to save your page</small></h3>
+    </div>
+    <div class="modal-body">
+      <%= form_for @user, {:url => '', :html => {:class => 'new_user form-horizontal'}} do |f| %>
+        <div class="control-group">
+          <label class="control-label" for="user_email">Email</label>
+          <div class="controls">
+            <%= f.email_field :email, :placeholder => 'email@example.com' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="user_password">Password</label>
+          <div class="controls">
+            <%= f.password_field :password, :placeholder => '********' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Login or Sign up", :class => 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

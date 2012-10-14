@@ -7,5 +7,6 @@ String.class_eval do
   def transliterate
     # Unidecode gem is missing some hyphen transliterations
     #self.gsub(/[-‐‒–—―⁃−­]/, '-').to_ascii
+    self.to_ascii
   end
 end
