@@ -121,6 +121,30 @@ p.edit-in-progress {
 			color: @highlightColor;
 		}
 	}
+
+  & > li {
+    position: relative;
+  }
+
+  & > li div {
+    visibility: hidden;
+    position: absolute;
+    left: -30px;
+    padding: 8px;
+    & > b { .opacity(25); }
+  }
+
+  & > li:hover div, & > li div:hover, & > li.active div:hover, & > li.active:hover div {
+    visibility: visible;
+  }
+
+  & > li div:hover {
+    cursor: pointer;
+
+    & > b {
+      .opacity(50);
+    }
+  }
 }
 
 .container section {

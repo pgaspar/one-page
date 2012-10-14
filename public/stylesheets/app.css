@@ -7671,6 +7671,32 @@ p.edit-in-progress {
 .page-sidenav > li.add-section > a:hover {
   color: #0088cc;
 }
+.page-sidenav > li {
+  position: relative;
+}
+.page-sidenav > li div {
+  visibility: hidden;
+  position: absolute;
+  left: -30px;
+  padding: 8px;
+}
+.page-sidenav > li div > b {
+  opacity: 0.25;
+  filter: alpha(opacity=25);
+}
+.page-sidenav > li:hover div,
+.page-sidenav > li div:hover,
+.page-sidenav > li.active div:hover,
+.page-sidenav > li.active:hover div {
+  visibility: visible;
+}
+.page-sidenav > li div:hover {
+  cursor: pointer;
+}
+.page-sidenav > li div:hover > b {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
 .container section {
   margin-top: 40px;
   margin-bottom: 60px;
