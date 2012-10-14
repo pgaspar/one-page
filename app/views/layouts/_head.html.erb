@@ -1,0 +1,8 @@
+<title><% if content_for?(:title) %><%= yield :title %><% else %>One page<% end %></title>
+<meta name="description" content="<% if content_for?(:description) %><%= yield :description %><% else %>Quickly create a simple website.<% end %>">
+<meta name="keywords" content="" /> 
+<meta name="robots" content="index,follow" />
+
+<%= include_stylesheets :defaults %>
+<%= include_javascripts :defaults %>
+<%= csrf_meta_tags %>

@@ -98,9 +98,10 @@ $(document).ready(function() {
       success: function(data) {
         if (!page_slug) {
           history.pushState({}, page.title, "/pages/" + data.slug);
-          //$('header').attr('data-slug', data.slug);
         }
         saved_page = page;
+        $('title').html(page.title);
+        $('meta[name=description]').attr('content', page.subtitle);
         console.log('saved.');
       }
     });
@@ -111,7 +112,7 @@ $(document).ready(function() {
 });
 
 $(window).bind('beforeunload', function(){
-  if (page_changed()) {
+  if ($('#page').size() > 0 && page_changed()) {
     return 'There are unsaved changes on this page.';
   }
 });
