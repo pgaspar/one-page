@@ -8,13 +8,22 @@ $(document).ready(function() {
 	    buttons: ''
 	});
 
+	$('h2.editable').inlineEdit({
+	    save: function(e, data) {
+	    	target = $(this).data('target');
+	    	$('#'+target).val(data.value);
+	    },
+	    //saveOnBlur: true,
+	    buttons: ''
+	});
+
 	$('.container .editable').inlineEdit({
 	    save: function(e, data) {
 	    	target = $(this).data('target');
 	    	$('#'+target).val(data.value);
 	    },
 	    control: 'textarea',
-	    //saveOnBlur: true,
+	    saveOnBlur: true,
 	    buttons: ''
 	});
 
