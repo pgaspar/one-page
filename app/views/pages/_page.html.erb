@@ -29,20 +29,24 @@
 <div id="page" class="container">
   <div class="row">
     <div class="span3 page-sidebar">
-      <ul class="nav nav-list page-sidenav span3" data-spy="affix" data-offset-top="220">
-        <% @page.sections.each_with_index do |section, section_index| %>
-          <li>
-            <a href="#section-<%= section_index %>">
-              <i class="icon-chevron-right"></i> <%= section.title %>
+      <div class="span3" data-spy="affix" data-offset-top="220">
+        <ul class="nav nav-list page-sidenav section-nav">
+          <% @page.sections.each_with_index do |section, section_index| %>
+            <li>
+              <a href="#section-<%= section_index %>">
+                <i class="icon-chevron-right"></i> <%= section.title %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="nav nav-list page-sidenav">
+          <li class="add-section">
+            <a href="#section-<%= @page.sections.size %>">
+              <i class="icon-plus"></i> Add Section
             </a>
           </li>
-        <% end %>
-        <li class="add-section">
-          <a href="#section-<%= @page.sections.size %>">
-            <i class="icon-plus"></i> Add Section
-          </a>
-        </li>
-      </ul>
+        </ul>
+      </div>
     </div>
     <div class="span9" id="section-container">
       <% @page.sections.each_with_index do |section, section_index| %>

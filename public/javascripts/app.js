@@ -37,9 +37,9 @@ $(document).ready(function() {
   $('.add-section').on('click', function(){
     c = $("section").size();
     var nav_code     = "<li><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
-    var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header\"><h2>New Section</h2></div><p class=\"lead editable\">Write your content here.</p></section>";
+    var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header editable\"><h2>New Section</h2></div><p class=\"lead editable\">Write your content here.</p></section>";
 
-    $(".nav-list li.add-section").before(nav_code);
+    $(".nav-list.section-nav").append(nav_code);
     $("#section-container").append(section_code);
   });
 
@@ -107,6 +107,10 @@ $(document).ready(function() {
     });
 
     e.preventDefault();
+  });
+
+  $(".nav-list").sortable({
+    placeholder: "drag-highlight"
   });
 
 });
