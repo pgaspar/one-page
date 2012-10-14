@@ -183,8 +183,6 @@ License: MIT
 /* Basic display options (colors, fonts, global widths) */
 .sp-container {
     border-radius: 0;
-    background-color: #ECECEC;
-    border: solid 1px #f0c49B;
     padding: 0;
 }
 .sp-container, .sp-container button, .sp-container input, .sp-color, .sp-hue
@@ -235,14 +233,13 @@ License: MIT
 {
     float:left;
     position: relative;
-    padding: 10px;
-    padding-bottom: 300px;
-    margin-bottom: -290px;
+    padding: 5px;
+    padding-bottom: 0;
+    margin-bottom: -5px;
 }
 .sp-picker-container
 {
-    width: 172px;
-    border-left: solid 1px #fff;
+    width: 80px;
 }
 
 /* Palettes */

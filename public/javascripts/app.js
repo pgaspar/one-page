@@ -1,6 +1,7 @@
 var saved_page;
 
 $(document).ready(function() {
+	$('#account-menu a').tooltip();
 
   // UI-UX
 
@@ -9,7 +10,7 @@ $(document).ready(function() {
 	    	target = $(this).data('target');
 	    	$('#'+target).val(data.value);
 	    },
-	    //saveOnBlur: true,
+	    saveOnBlur: true,
 	    buttons: ''
 	});
 
@@ -18,7 +19,7 @@ $(document).ready(function() {
 	    	target = $(this).data('target');
 	    	$('#'+target).val(data.value);
 	    },
-	    //saveOnBlur: true,
+	    saveOnBlur: true,
 	    buttons: ''
 	});
 
@@ -83,6 +84,18 @@ $(document).ready(function() {
       updateGradient();
     }
   });
+
+
+  // Menu ---
+  $('#edit-header').on('click', function(e){
+
+  	$('#gradient-editor').toggleClass('open');
+  	
+
+  	e.preventDefault();
+  });
+
+  //--- Menu
 
   $('#save-link').on('click', function(e) {
     
