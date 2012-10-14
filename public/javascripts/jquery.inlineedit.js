@@ -184,7 +184,7 @@ $.inlineEdit.prototype = {
     },
 
     placeholderHtml: function() {
-        return '<span class="'+ placeholderClass +'">'+ this.options.placeholder +'</span>';
+        return this.options.placeholder ;
     },
 
     buttonHtml: function( options ) {

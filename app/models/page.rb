@@ -1,7 +1,6 @@
 class Page
   include Mongoid::Document
   include Mongoid::Timestamps::Created
-  include Mongoid::Paperclip
   
   field :slug
   field :title
@@ -9,8 +8,6 @@ class Page
 
   field :gradient_left
   field :gradient_right
-
-  has_mongoid_attached_file :cover_photo
 
   belongs_to :user
   embeds_many :sections
@@ -59,6 +56,7 @@ class Page
   end
 
   def get_new_slug
+    p title
     new_slug = title[0..100].to_slug
     return new_slug unless Page.with_slug(new_slug)
     count = 2

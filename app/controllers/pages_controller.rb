@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :new]
+  before_filter :authenticate_user!, :except => [:show, :new, :create]
 
   # GET /pages
   # GET /pages.json
@@ -44,26 +44,33 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
 
-    @page = current_user.pages.new(params[:page])
+    @page = Page.new(params[:page])
 
+    # Try to login
     unless signed_in?
-      @user = User.find_by_email(params[:user][:email])
-      if @user and @user.valid_password?(params[:user][:password])
-        sign_in @user, :event => :authentication
-      else
-        respond_to do |format|
-          format.html { render :action => "new" }
-          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+      @user = User.first(:conditions => {:email => params[:user][:email]})
+      if @user 
+        if @user.valid_password?(params[:user][:password])
+          sign_in @user, :event => :authentication
+        else
+          respond_to do |format|
+            format.html { render :action => "new" }
+            format.json { render :json => 'Unsuccessful login.', :status => :unprocessable_entity }
+          end
+          return
         end
-        return
       end
+    end
+
+    # Try to sign up
+    unless signed_in?
       @user = User.new(params[:user])
       if @user.save
         sign_in @user, :event => :authentication
       else
         respond_to do |format|
           format.html { render :action => "new" }
-          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+          format.json { render :json => 'Invalid sign up information.', :status => :unprocessable_entity }
         end
         return
       end
@@ -86,10 +93,12 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = current_user.pages.with_slug!(params[:id])
+    @page.attributes = params[:page]
 
     respond_to do |format|
-      set_destroy_on_missing_sections(@page)
-      if @page.update_attributes(params[:page])
+      if @page.valid?
+        @page.sections.destroy_all
+        @page.update_attributes(params[:page])
         format.html { redirect_to @page, :notice => 'Page was successfully updated.' }
         format.json { render :json => {} }
       else
@@ -111,14 +120,4 @@ class PagesController < ApplicationController
     end
   end
 
-  private
-
-  def set_destroy_on_missing_sections(page)
-    current_sections_ids = page.sections.map(&:id).map(&:to_s)
-    params_sections_ids = params[:page][:sections_attributes].values.map { |s| s[:id] }.compact
-    remove_sections_ids = current_sections_ids - params_sections_ids
-    remove_sections_ids.each do |section_id|
-      params[:page][:sections_attributes][params[:page][:sections_attributes].size] = {:id => section_id, :_destroy => true}
-    end
-  end
 end

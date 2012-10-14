@@ -11,6 +11,7 @@ javascripts:
     - public/javascripts/jquery.inlineedit.js
     - public/javascripts/jquery.autogrow-textarea.js
     - public/javascripts/jquery-ui-1.9.0.custom.min.js
+    - public/javascripts/jquery.color.js
     - public/javascripts/rails.js
     - public/javascripts/spectrum.js
     - public/javascripts/app.js
