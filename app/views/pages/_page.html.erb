@@ -1,20 +1,33 @@
+<% content_for :title do %><%= @page.title %><% end %>
+<% content_for :description do %><%= @page.subtitle %><% end %>
+
 <div id="account-menu">
-  <ul class="nav nav-pills nav-stacked">
+  <ul class="unstyled">
     <% if signed_in? %>
-      <li><%= link_to 'Save this Page!', '#', :id => "save-link" %></li>
-      <li><%= link_to 'Manage your Pages', :pages %></li>
-      <li><%= link_to 'Logout', :destroy_user_session %></li>
+      <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
+      <li><a href="#" rel="tooltip" id="save-link" data-placement="left" data-original-title="Save page"><i class="icon-save"></i></a></li>
+      <li><a href="<%= pages_url() %>" rel="tooltip" data-placement="left" data-original-title="Manage pages"><i class="icon-file"></i></a></li>
+      <li><a href="<%= destroy_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Logout"><i class="icon-off"></i></a></li>
     <% else %>
-      <li><%= link_to 'Sign In', :new_user_session %></li>
+
+      <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
+      <li><a href="<%= new_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Sign In"><i class="icon-signin"></i></a></li>
     <% end %>
   </ul>
-  <br>
-  
-  <div id="gradient-editor">
-    <input type='text' id="gradient-left-color" />
-    <input type='text' id="gradient-right-color" />
-  </div>
+      <%= form_for @user, :url => '' do |f| %>
+        <p><%= f.email_field :email, :placeholder => 'email@example.com' %></p>
+        <p><%= f.password_field :password, :placeholder => '********' %></p>
+        <p><%= f.submit "Login or Sign up" %></p>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
+
+<div id="gradient-editor">
+  <input type='text' id="gradient-left-color" />
+  <input type='text' id="gradient-right-color" />
+</div>
+
 
 <header class="jumbotron subhead" id="overview" data-slug="<%= @page.slug %>" data-gradient-left="<%= @page.gradient_left %>" data-gradient-right="<%= @page.gradient_right %>">
   <div class="container">
@@ -23,10 +36,10 @@
   </div>
 </header>
 
-<div class="container">
+<div id="page" class="container">
   <div class="row">
-    <div class="span3 page-sidebar">
-      <div class="span3" data-spy="affix" data-offset-top="220">
+    <div class="span3">
+      <div class="span3 page-sidebar" data-spy="affix" data-offset-top="220">
         <ul class="nav nav-list page-sidenav section-nav">
           <% @page.sections.each_with_index do |section, section_index| %>
             <li>

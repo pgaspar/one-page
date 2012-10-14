@@ -1,8 +1,7 @@
 var saved_page;
 
 $(document).ready(function() {
-
-  saved_page = process_page_from_dom();
+	$('#account-menu a').tooltip();
 
   // UI-UX
 
@@ -11,7 +10,7 @@ $(document).ready(function() {
 	    	target = $(this).data('target');
 	    	$('#'+target).val(data.value);
 	    },
-	    //saveOnBlur: true,
+	    saveOnBlur: true,
 	    buttons: ''
 	});
 
@@ -20,7 +19,7 @@ $(document).ready(function() {
 	    	target = $(this).data('target');
 	    	$('#'+target).val(data.value);
 	    },
-	    //saveOnBlur: true,
+	    saveOnBlur: true,
 	    buttons: ''
 	});
 
@@ -86,6 +85,18 @@ $(document).ready(function() {
     }
   });
 
+
+  // Menu ---
+  $('#edit-header').on('click', function(e){
+
+  	$('#gradient-editor').toggleClass('open');
+  	
+
+  	e.preventDefault();
+  });
+
+  //--- Menu
+
   $('#save-link').on('click', function(e) {
     
     var page_slug = $('header').attr('data-slug');
@@ -97,8 +108,11 @@ $(document).ready(function() {
       data: { page: page },
       success: function(data) {
         if (!page_slug) {
-          window.location = "/pages/" + data.slug;        }
+          history.pushState({}, page.title, "/pages/" + data.slug);
+        }
         saved_page = page;
+        $('title').html(page.title);
+        $('meta[name=description]').attr('content', page.subtitle);
         console.log('saved.');
       }
     });
@@ -135,10 +149,15 @@ $(document).ready(function() {
     section.remove();
   });
 
+  // Save first page state
+  if ($('#page').size() > 0) {
+    saved_page = process_page_from_dom();
+  }
+
 });
 
 $(window).bind('beforeunload', function(){
-  if (page_changed()) {
+  if ($('#page').size() > 0 && page_changed()) {
     return 'There are unsaved changes on this page.';
   }
 });

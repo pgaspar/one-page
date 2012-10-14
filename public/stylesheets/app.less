@@ -13,13 +13,19 @@
 
 @borderRadius: 5px;
 
+
 .jumbotron h1 {
-	line-height: 80px;
+	line-height: 60px;
+	margin-bottom: 0;
+}
+
+.jumbotron {
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.075);
 }
 
 .editable {
-	padding: 5px 10px 10px;
-	.transition(background 0.3s ease);
+	padding: 7px 10px 8px;
+	.transition(background 0.2s ease);
 
 	&:hover {
 		background: @editBkg;
@@ -41,6 +47,7 @@
 	    text-rendering: optimizeLegibility;
 
 	    padding: 0;
+	    margin: 0;
 	}
 }
 
@@ -82,6 +89,8 @@ header h1.editable input, header h1.editable input:active, header h1.editable in
 	line-height: 1;
 	font-size: 60px;
 	color: #fff;
+
+	margin-top: -2px;
 }
 
 header p.editable input, header p.editable input:active, header p.editable input:hover, header p.editable input:focus {
@@ -92,18 +101,21 @@ header p.editable input, header p.editable input:active, header p.editable input
 }
 
 h1.edit-in-progress { 
-	padding: 2px 10px 4px;
+	padding: 0px 10px 1px;
 }
 
 p.edit-in-progress { 
-	padding: 5px 10px 1px;
+	padding: 4px 10px 9px;
 }
 
+.page-sidebar {
+  margin-left: 0;
+}
 .page-sidenav { 
 	.border-radius(0);
 	.box-shadow(none);
 
-	& > li:first-child > a {
+	& > li:first-child > a, & > li:last-child > a {
 		.border-radius(0);
 	}
 
@@ -152,10 +164,6 @@ p.edit-in-progress {
 	margin-bottom: 60px;
 }
 
-.jumbotron p {
-	margin-top: -20px;
-}
-
 p.lead {
 	line-height: 32px;
 }
@@ -164,24 +172,70 @@ li.add-section {
   background-color: whiteSmoke;
 }
 
-#account-menu {
-  position: fixed;
-  top: 0;
-  right: 20px;
-  z-index: 10;
-	background-color: rgba(255,255,255,0.9);
-	max-width: 400px;
-	text-shadow: none;
+#gradient-editor {
+	position: fixed;
+	right: 43px;
+	z-index: 10;
+	top: 5px;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 3px;
 
-  ul {
-    margin-bottom: 0;
-    li > a {
-      .border-radius(0);
-    }
-  	li, a {
-  		color: black;
-  	}
-  }
+	.border-radius(@borderRadius);
+
+	.opacity(0);
+
+	&.open {
+		.opacity(100);
+	}
+}
+
+#account-menu {
+	position: fixed;
+	top: 5px;
+	right: 5px;
+	z-index: 10;
+	
+	text-shadow: none;
+	.border-radius(@borderRadius);
+	background-color: rgba(0, 0, 0, 0.5);
+
+	ul {
+		margin-bottom: 0;
+
+		li > a {
+			
+			color: white;
+			white-space: nowrap;
+			font-size: 13px;
+			padding: 5px;
+			text-align: right;
+			overflow: hidden;
+
+			display: block;
+			
+
+			span {
+				display: none;
+			}
+
+			&:hover {
+				text-decoration: none;
+
+				span {
+					display: block;
+				}
+			}
+
+			i {
+				font-size: 20px;
+				vertical-align: middle;
+				margin-left: -2px;
+				-webkit-font-smoothing: antialiased;
+			}
+		}
+		li {
+		}
+	}
 }
 
 .notice, .error {

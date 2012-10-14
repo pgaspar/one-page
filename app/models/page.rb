@@ -18,10 +18,11 @@ class Page
   index :slug, :unique => true, :background => true
   index :created_at, :background => true
 
-  validates :slug, 		:presence => true,
-                   		:length => { :within => 3..24 }
-  validates :title, 	:presence => true
-  validates :subtitle, 	:length => { :maximum => 500 }
+  validates :slug, 		 :presence => true,
+                   		 :length => { :within => 1..48 }
+  validates :title, 	 :presence => true,
+                       :length => { :maximum => 36 }
+  validates :subtitle, :length => { :maximum => 500 }
 
   accepts_nested_attributes_for :sections, :allow_destroy => true
 
