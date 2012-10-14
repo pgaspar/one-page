@@ -17,3 +17,5 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'win32-open3', :platforms => [:mswin, :mingw]
 gem 'rush'
 gem 'jammit'
+
+gem "unidecode" # For slug generation

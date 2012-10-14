@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>One Page</title>
+  <%= include_stylesheets :defaults %>
+  <%= include_javascripts :defaults %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if notice %><p class="notice"><%= notice %></p><% end %>
+  <% if alert %><p class="alert"><%= alert %></p><% end %>
+
+  <div id="home">
+    <div id="home-outer">
+      <div id="home-inner">
+        <div id="home-contents">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

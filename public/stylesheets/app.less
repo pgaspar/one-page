@@ -1,6 +1,7 @@
 @import "bootstrap/bootstrap";
 @import "bootstrap/responsive";
 @import "bootstrap-helpers";
+@import "homepage";
 
 #page-container {
   padding-bottom: @baseLineHeight*2;
@@ -142,13 +143,93 @@ p.lead {
 }
 
 #account-menu {
-	float: right;
-	background-color: white;
-	width: 400px;
-	height: 100%;
+  position: fixed;
+  top: 0;
+  right: 20px;
+  z-index: 10;
+	background-color: rgba(255,255,255,0.9);
+	max-width: 400px;
 	text-shadow: none;
 
-	li, a {
-		color: black;
-	}
+  ul {
+    margin-bottom: 0;
+    li > a {
+      .border-radius(0);
+    }
+  	li, a {
+  		color: black;
+  	}
+  }
+}
+
+.notice, .error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+// Pages List
+
+#page-list {
+
+  header {
+    text-align: center;
+    h1 {
+      display: inline-block;
+      padding: @baseLineHeight*2.5 0 0;
+      margin: @baseLineHeight auto;
+      background-color: whitesmoke;
+      .border-box();
+      width: 200px;
+      height: 200px;
+      .border-radius(200px);
+    }
+  }
+
+  .page-thumb {
+    margin-bottom: @baseLineHeight;
+    & > a {
+      color: white;
+      .page-thumb-head {
+        width: 100%;
+        text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+        padding: @baseLineHeight;
+        .border-box();
+        h2 {
+          margin: 0;
+          height: @baseLineHeight*4;
+          overflow: hidden;
+        }
+      }
+    }
+    .page-thumb-controls {
+      background-color: whitesmoke;
+      border-top: 1px solid white;
+      padding: @baseLineHeight/2 - 1 @baseLineHeight @baseLineHeight/2;
+      text-align: right;
+      a {
+        margin-left: @baseLineHeight/2;
+      }
+      i {
+        .opacity(50);
+      }
+    }
+  }
+
+  .page-new {
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: @baseLineHeight*8;
+    height: @baseLineHeight*8;
+    color: darkgray;
+    &:hover {
+      background-color: lightgray;
+      color: black;
+      text-decoration: none;
+    }
+  }
 }

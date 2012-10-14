@@ -42,7 +42,7 @@ $(document).ready(function() {
   var $rightColor = $('form input#page_gradient_right').val() || '#6D3353';
 
   function updateGradient() {
-    $('.jumbotron').css('background-image', $leftColor); /* Old browsers */
+    $('.jumbotron').css('background-color', $leftColor); /* Old browsers */
     $('.jumbotron').css('background-image', '-moz-linear-gradient(45deg, '+$leftColor+' 0%, '+$rightColor+' 100%'); /* FF3.6+ */
     $('.jumbotron').css('background-image', '-webkit-gradient(linear, left bottom, right top, color-stop(0%,'+$leftColor+'), color-stop(100%,'+$rightColor+')'); /* Chrome,Safari4+ */
     $('.jumbotron').css('background-image', '-webkit-linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* Chrome10+,Safari5.1+ */

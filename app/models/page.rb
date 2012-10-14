@@ -25,6 +25,8 @@ class Page
 
   accepts_nested_attributes_for :sections
 
+  before_validation :set_slug
+
   def to_param
     slug
   end
@@ -47,6 +49,23 @@ class Page
         Section.new(:title => 'About', :content => "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.")
       ]
     )
+  end
+
+  private
+
+  def set_slug
+    self[:slug] = get_new_slug
+  end
+
+  def get_new_slug
+    new_slug = title[0..100].to_slug
+    return new_slug unless Page.with_slug(new_slug)
+    count = 2
+    while true
+      break unless Page.with_slug(new_slug + count.to_s)
+      count += 1
+    end
+    new_slug + count.to_s
   end
 
 end
