@@ -45,9 +45,9 @@
       <% @page.sections.each_with_index do |section, section_index| %>
         <section id="section-<%= section_index %>">
           <div class="page-header">
-            <h1><%= section.title %></h1>
+            <h2 class="editable"><%= section.title %></h2>
           </div>
-          <p class="editable">
+          <p class="lead editable">
             <%= section.content %>
           </p>
         </section>
