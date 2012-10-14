@@ -490,7 +490,7 @@ a:hover {
 }
 .row-fluid .span3 {
   width: 23.404255319148934%;
-  *width: 23.351063829787232%;
+  *width: 23.351063829787233%;
 }
 .row-fluid .span2 {
   width: 14.893617021276595%;
@@ -501,35 +501,35 @@ a:hover {
   *width: 6.329787234042553%;
 }
 .row-fluid .offset12 {
-  margin-left: 104.25531914893616%;
+  margin-left: 104.25531914893617%;
   *margin-left: 104.14893617021275%;
 }
 .row-fluid .offset12:first-child {
   margin-left: 102.12765957446808%;
-  *margin-left: 102.02127659574466%;
+  *margin-left: 102.02127659574467%;
 }
 .row-fluid .offset11 {
   margin-left: 95.74468085106382%;
   *margin-left: 95.6382978723404%;
 }
 .row-fluid .offset11:first-child {
-  margin-left: 93.61702127659573%;
+  margin-left: 93.61702127659574%;
   *margin-left: 93.51063829787232%;
 }
 .row-fluid .offset10 {
-  margin-left: 87.23404255319148%;
+  margin-left: 87.23404255319149%;
   *margin-left: 87.12765957446807%;
 }
 .row-fluid .offset10:first-child {
   margin-left: 85.1063829787234%;
-  *margin-left: 84.99999999999998%;
+  *margin-left: 84.99999999999999%;
 }
 .row-fluid .offset9 {
   margin-left: 78.72340425531914%;
   *margin-left: 78.61702127659572%;
 }
 .row-fluid .offset9:first-child {
-  margin-left: 76.59574468085105%;
+  margin-left: 76.59574468085106%;
   *margin-left: 76.48936170212764%;
 }
 .row-fluid .offset8 {
@@ -553,7 +553,7 @@ a:hover {
   *margin-left: 53.085106382978715%;
 }
 .row-fluid .offset6:first-child {
-  margin-left: 51.063829787234034%;
+  margin-left: 51.063829787234035%;
   *margin-left: 50.95744680851063%;
 }
 .row-fluid .offset5 {
@@ -594,7 +594,7 @@ a:hover {
 }
 .row-fluid .offset1:first-child {
   margin-left: 8.51063829787234%;
-  *margin-left: 8.404255319148937%;
+  *margin-left: 8.404255319148938%;
 }
 .row-fluid {
   width: 100%;
@@ -683,7 +683,7 @@ a:hover {
 }
 .row-fluid .span3 {
   width: 23.404255319148934%;
-  *width: 23.351063829787232%;
+  *width: 23.351063829787233%;
 }
 .row-fluid .span2 {
   width: 14.893617021276595%;
@@ -694,35 +694,35 @@ a:hover {
   *width: 6.329787234042553%;
 }
 .row-fluid .offset12 {
-  margin-left: 104.25531914893616%;
+  margin-left: 104.25531914893617%;
   *margin-left: 104.14893617021275%;
 }
 .row-fluid .offset12:first-child {
   margin-left: 102.12765957446808%;
-  *margin-left: 102.02127659574466%;
+  *margin-left: 102.02127659574467%;
 }
 .row-fluid .offset11 {
   margin-left: 95.74468085106382%;
   *margin-left: 95.6382978723404%;
 }
 .row-fluid .offset11:first-child {
-  margin-left: 93.61702127659573%;
+  margin-left: 93.61702127659574%;
   *margin-left: 93.51063829787232%;
 }
 .row-fluid .offset10 {
-  margin-left: 87.23404255319148%;
+  margin-left: 87.23404255319149%;
   *margin-left: 87.12765957446807%;
 }
 .row-fluid .offset10:first-child {
   margin-left: 85.1063829787234%;
-  *margin-left: 84.99999999999998%;
+  *margin-left: 84.99999999999999%;
 }
 .row-fluid .offset9 {
   margin-left: 78.72340425531914%;
   *margin-left: 78.61702127659572%;
 }
 .row-fluid .offset9:first-child {
-  margin-left: 76.59574468085105%;
+  margin-left: 76.59574468085106%;
   *margin-left: 76.48936170212764%;
 }
 .row-fluid .offset8 {
@@ -746,7 +746,7 @@ a:hover {
   *margin-left: 53.085106382978715%;
 }
 .row-fluid .offset6:first-child {
-  margin-left: 51.063829787234034%;
+  margin-left: 51.063829787234035%;
   *margin-left: 50.95744680851063%;
 }
 .row-fluid .offset5 {
@@ -787,7 +787,7 @@ a:hover {
 }
 .row-fluid .offset1:first-child {
   margin-left: 8.51063829787234%;
-  *margin-left: 8.404255319148937%;
+  *margin-left: 8.404255319148938%;
 }
 [class*="span"].hide,
 .row-fluid [class*="span"].hide {
@@ -2627,457 +2627,723 @@ table [class*=span],
 .table-hover tbody tr.info:hover td {
   background-color: #c4e3f3;
 }
-[class^="icon-"],
-[class*=" icon-"] {
+/*  Font Awesome
+    the iconic font designed for use with Twitter Bootstrap
+    -------------------------------------------------------
+    The full suite of pictographic icons, examples, and documentation
+    can be found at: http://fortawesome.github.com/Font-Awesome/
+
+    License
+    -------------------------------------------------------
+    The Font Awesome webfont, CSS, and LESS files are licensed under CC BY 3.0:
+    http://creativecommons.org/licenses/by/3.0/ A mention of
+    'Font Awesome - http://fortawesome.github.com/Font-Awesome' in human-readable
+    source code is considered acceptable attribution (most common on the web).
+    If human readable source code is not available to the end user, a mention in
+    an 'About' or 'Credits' screen is considered acceptable (most common in desktop
+    or mobile software).
+
+    Contact
+    -------------------------------------------------------
+    Email: dave@davegandy.com
+    Twitter: http://twitter.com/fortaweso_me
+    Work: Lead Product Designer @ http://kyruus.com
+
+    */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../font/fontawesome-webfont.eot');
+  src: url('../font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../font/fontawesome-webfont.woff') format('woff'), url('../font/fontawesome-webfont.ttf') format('truetype'), url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*  Font Awesome styles
+    ------------------------------------------------------- */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
   display: inline-block;
-  width: 14px;
-  height: 14px;
-  *margin-right: .3em;
-  *margin-right: .3em;
-  line-height: 14px;
-  vertical-align: text-top;
-  background-image: url("bootstrap/bootstrap/../../../img/glyphicons-halflings.png");
-  background-position: 14px 14px;
-  background-repeat: no-repeat;
-  margin-top: 1px;
+  text-decoration: inherit;
 }
-/* White icons with optional class, or on hover/active states of certain elements */
-.icon-white,
-.nav-tabs > .active > a > [class^="icon-"],
-.nav-tabs > .active > a > [class*=" icon-"],
-.nav-pills > .active > a > [class^="icon-"],
-.nav-pills > .active > a > [class*=" icon-"],
-.nav-list > .active > a > [class^="icon-"],
-.nav-list > .active > a > [class*=" icon-"],
-.navbar-inverse .nav > .active > a > [class^="icon-"],
-.navbar-inverse .nav > .active > a > [class*=" icon-"],
-.dropdown-menu > li > a:hover > [class^="icon-"],
-.dropdown-menu > li > a:hover > [class*=" icon-"],
-.dropdown-menu > .active > a > [class^="icon-"],
-.dropdown-menu > .active > a > [class*=" icon-"] {
-  background-image: url("bootstrap/bootstrap/../../../img/glyphicons-halflings-white.png");
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline-block;
+  text-decoration: inherit;
 }
-.icon-glass {
-  background-position: 0      0;
+/* makes the font 33% larger relative to the icon container */
+.icon-large:before {
+  vertical-align: middle;
+  font-size: 1.3333333333333333em;
 }
-.icon-music {
-  background-position: -24px 0;
+.btn [class^="icon-"],
+.nav-tabs [class^="icon-"],
+.btn [class*=" icon-"],
+.nav-tabs [class*=" icon-"] {
+  /* keeps button heights with and without icons the same */
+
+  line-height: .9em;
 }
-.icon-search {
-  background-position: -48px 0;
+li [class^="icon-"],
+li [class*=" icon-"] {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
 }
-.icon-envelope {
-  background-position: -72px 0;
+li .icon-large:before,
+li .icon-large:before {
+  /* 1.5 increased font size for icon-large * 1.25 width */
+
+  width: 1.875em;
 }
-.icon-heart {
-  background-position: -96px 0;
+ul.icons {
+  list-style-type: none;
+  margin-left: 2em;
+  text-indent: -0.8em;
 }
-.icon-star {
-  background-position: -120px 0;
+ul.icons li [class^="icon-"],
+ul.icons li [class*=" icon-"] {
+  width: .8em;
 }
-.icon-star-empty {
-  background-position: -144px 0;
+ul.icons li .icon-large:before,
+ul.icons li .icon-large:before {
+  /* 1.5 increased font size for icon-large * 1.25 width */
+
+  vertical-align: initial;
 }
-.icon-user {
-  background-position: -168px 0;
+/*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons */
+.icon-glass:before {
+  content: "\f000";
 }
-.icon-film {
-  background-position: -192px 0;
+.icon-music:before {
+  content: "\f001";
 }
-.icon-th-large {
-  background-position: -216px 0;
+.icon-search:before {
+  content: "\f002";
 }
-.icon-th {
-  background-position: -240px 0;
+.icon-envelope:before {
+  content: "\f003";
 }
-.icon-th-list {
-  background-position: -264px 0;
+.icon-heart:before {
+  content: "\f004";
 }
-.icon-ok {
-  background-position: -288px 0;
+.icon-star:before {
+  content: "\f005";
 }
-.icon-remove {
-  background-position: -312px 0;
+.icon-star-empty:before {
+  content: "\f006";
 }
-.icon-zoom-in {
-  background-position: -336px 0;
+.icon-user:before {
+  content: "\f007";
 }
-.icon-zoom-out {
-  background-position: -360px 0;
+.icon-film:before {
+  content: "\f008";
 }
-.icon-off {
-  background-position: -384px 0;
+.icon-th-large:before {
+  content: "\f009";
 }
-.icon-signal {
-  background-position: -408px 0;
+.icon-th:before {
+  content: "\f00a";
 }
-.icon-cog {
-  background-position: -432px 0;
+.icon-th-list:before {
+  content: "\f00b";
 }
-.icon-trash {
-  background-position: -456px 0;
+.icon-ok:before {
+  content: "\f00c";
 }
-.icon-home {
-  background-position: 0 -24px;
+.icon-remove:before {
+  content: "\f00d";
 }
-.icon-file {
-  background-position: -24px -24px;
+.icon-zoom-in:before {
+  content: "\f00e";
 }
-.icon-time {
-  background-position: -48px -24px;
+.icon-zoom-out:before {
+  content: "\f010";
 }
-.icon-road {
-  background-position: -72px -24px;
+.icon-off:before {
+  content: "\f011";
 }
-.icon-download-alt {
-  background-position: -96px -24px;
+.icon-signal:before {
+  content: "\f012";
 }
-.icon-download {
-  background-position: -120px -24px;
+.icon-cog:before {
+  content: "\f013";
 }
-.icon-upload {
-  background-position: -144px -24px;
+.icon-trash:before {
+  content: "\f014";
 }
-.icon-inbox {
-  background-position: -168px -24px;
+.icon-home:before {
+  content: "\f015";
 }
-.icon-play-circle {
-  background-position: -192px -24px;
+.icon-file:before {
+  content: "\f016";
 }
-.icon-repeat {
-  background-position: -216px -24px;
+.icon-time:before {
+  content: "\f017";
 }
-.icon-refresh {
-  background-position: -240px -24px;
+.icon-road:before {
+  content: "\f018";
 }
-.icon-list-alt {
-  background-position: -264px -24px;
+.icon-download-alt:before {
+  content: "\f019";
 }
-.icon-lock {
-  background-position: -287px -24px;
+.icon-download:before {
+  content: "\f01a";
 }
-.icon-flag {
-  background-position: -312px -24px;
+.icon-upload:before {
+  content: "\f01b";
 }
-.icon-headphones {
-  background-position: -336px -24px;
+.icon-inbox:before {
+  content: "\f01c";
 }
-.icon-volume-off {
-  background-position: -360px -24px;
+.icon-play-circle:before {
+  content: "\f01d";
 }
-.icon-volume-down {
-  background-position: -384px -24px;
+.icon-repeat:before {
+  content: "\f01e";
 }
-.icon-volume-up {
-  background-position: -408px -24px;
+/* \f020 doesn't work in Safari. all shifted one down */
+.icon-refresh:before {
+  content: "\f021";
 }
-.icon-qrcode {
-  background-position: -432px -24px;
+.icon-list-alt:before {
+  content: "\f022";
 }
-.icon-barcode {
-  background-position: -456px -24px;
+.icon-lock:before {
+  content: "\f023";
 }
-.icon-tag {
-  background-position: 0 -48px;
+.icon-flag:before {
+  content: "\f024";
 }
-.icon-tags {
-  background-position: -25px -48px;
+.icon-headphones:before {
+  content: "\f025";
 }
-.icon-book {
-  background-position: -48px -48px;
+.icon-volume-off:before {
+  content: "\f026";
 }
-.icon-bookmark {
-  background-position: -72px -48px;
+.icon-volume-down:before {
+  content: "\f027";
 }
-.icon-print {
-  background-position: -96px -48px;
+.icon-volume-up:before {
+  content: "\f028";
 }
-.icon-camera {
-  background-position: -120px -48px;
+.icon-qrcode:before {
+  content: "\f029";
 }
-.icon-font {
-  background-position: -144px -48px;
+.icon-barcode:before {
+  content: "\f02a";
 }
-.icon-bold {
-  background-position: -167px -48px;
+.icon-tag:before {
+  content: "\f02b";
 }
-.icon-italic {
-  background-position: -192px -48px;
+.icon-tags:before {
+  content: "\f02c";
 }
-.icon-text-height {
-  background-position: -216px -48px;
+.icon-book:before {
+  content: "\f02d";
 }
-.icon-text-width {
-  background-position: -240px -48px;
+.icon-bookmark:before {
+  content: "\f02e";
 }
-.icon-align-left {
-  background-position: -264px -48px;
+.icon-print:before {
+  content: "\f02f";
 }
-.icon-align-center {
-  background-position: -288px -48px;
+.icon-camera:before {
+  content: "\f030";
 }
-.icon-align-right {
-  background-position: -312px -48px;
+.icon-font:before {
+  content: "\f031";
 }
-.icon-align-justify {
-  background-position: -336px -48px;
+.icon-bold:before {
+  content: "\f032";
 }
-.icon-list {
-  background-position: -360px -48px;
+.icon-italic:before {
+  content: "\f033";
 }
-.icon-indent-left {
-  background-position: -384px -48px;
+.icon-text-height:before {
+  content: "\f034";
 }
-.icon-indent-right {
-  background-position: -408px -48px;
+.icon-text-width:before {
+  content: "\f035";
 }
-.icon-facetime-video {
-  background-position: -432px -48px;
+.icon-align-left:before {
+  content: "\f036";
 }
-.icon-picture {
-  background-position: -456px -48px;
+.icon-align-center:before {
+  content: "\f037";
 }
-.icon-pencil {
-  background-position: 0 -72px;
+.icon-align-right:before {
+  content: "\f038";
 }
-.icon-map-marker {
-  background-position: -24px -72px;
+.icon-align-justify:before {
+  content: "\f039";
 }
-.icon-adjust {
-  background-position: -48px -72px;
+.icon-list:before {
+  content: "\f03a";
 }
-.icon-tint {
-  background-position: -72px -72px;
+.icon-indent-left:before {
+  content: "\f03b";
 }
-.icon-edit {
-  background-position: -96px -72px;
+.icon-indent-right:before {
+  content: "\f03c";
 }
-.icon-share {
-  background-position: -120px -72px;
+.icon-facetime-video:before {
+  content: "\f03d";
 }
-.icon-check {
-  background-position: -144px -72px;
+.icon-picture:before {
+  content: "\f03e";
 }
-.icon-move {
-  background-position: -168px -72px;
+.icon-pencil:before {
+  content: "\f040";
 }
-.icon-step-backward {
-  background-position: -192px -72px;
+.icon-map-marker:before {
+  content: "\f041";
 }
-.icon-fast-backward {
-  background-position: -216px -72px;
+.icon-adjust:before {
+  content: "\f042";
 }
-.icon-backward {
-  background-position: -240px -72px;
+.icon-tint:before {
+  content: "\f043";
 }
-.icon-play {
-  background-position: -264px -72px;
+.icon-edit:before {
+  content: "\f044";
 }
-.icon-pause {
-  background-position: -288px -72px;
+.icon-share:before {
+  content: "\f045";
 }
-.icon-stop {
-  background-position: -312px -72px;
+.icon-check:before {
+  content: "\f046";
 }
-.icon-forward {
-  background-position: -336px -72px;
+.icon-move:before {
+  content: "\f047";
 }
-.icon-fast-forward {
-  background-position: -360px -72px;
+.icon-step-backward:before {
+  content: "\f048";
 }
-.icon-step-forward {
-  background-position: -384px -72px;
+.icon-fast-backward:before {
+  content: "\f049";
 }
-.icon-eject {
-  background-position: -408px -72px;
+.icon-backward:before {
+  content: "\f04a";
 }
-.icon-chevron-left {
-  background-position: -432px -72px;
+.icon-play:before {
+  content: "\f04b";
 }
-.icon-chevron-right {
-  background-position: -456px -72px;
+.icon-pause:before {
+  content: "\f04c";
 }
-.icon-plus-sign {
-  background-position: 0 -96px;
+.icon-stop:before {
+  content: "\f04d";
 }
-.icon-minus-sign {
-  background-position: -24px -96px;
+.icon-forward:before {
+  content: "\f04e";
 }
-.icon-remove-sign {
-  background-position: -48px -96px;
+.icon-fast-forward:before {
+  content: "\f050";
 }
-.icon-ok-sign {
-  background-position: -72px -96px;
+.icon-step-forward:before {
+  content: "\f051";
 }
-.icon-question-sign {
-  background-position: -96px -96px;
+.icon-eject:before {
+  content: "\f052";
 }
-.icon-info-sign {
-  background-position: -120px -96px;
+.icon-chevron-left:before {
+  content: "\f053";
 }
-.icon-screenshot {
-  background-position: -144px -96px;
+.icon-chevron-right:before {
+  content: "\f054";
 }
-.icon-remove-circle {
-  background-position: -168px -96px;
+.icon-plus-sign:before {
+  content: "\f055";
 }
-.icon-ok-circle {
-  background-position: -192px -96px;
+.icon-minus-sign:before {
+  content: "\f056";
 }
-.icon-ban-circle {
-  background-position: -216px -96px;
+.icon-remove-sign:before {
+  content: "\f057";
 }
-.icon-arrow-left {
-  background-position: -240px -96px;
+.icon-ok-sign:before {
+  content: "\f058";
 }
-.icon-arrow-right {
-  background-position: -264px -96px;
+.icon-question-sign:before {
+  content: "\f059";
 }
-.icon-arrow-up {
-  background-position: -289px -96px;
+.icon-info-sign:before {
+  content: "\f05a";
 }
-.icon-arrow-down {
-  background-position: -312px -96px;
+.icon-screenshot:before {
+  content: "\f05b";
 }
-.icon-share-alt {
-  background-position: -336px -96px;
+.icon-remove-circle:before {
+  content: "\f05c";
 }
-.icon-resize-full {
-  background-position: -360px -96px;
+.icon-ok-circle:before {
+  content: "\f05d";
 }
-.icon-resize-small {
-  background-position: -384px -96px;
+.icon-ban-circle:before {
+  content: "\f05e";
 }
-.icon-plus {
-  background-position: -408px -96px;
+.icon-arrow-left:before {
+  content: "\f060";
 }
-.icon-minus {
-  background-position: -433px -96px;
+.icon-arrow-right:before {
+  content: "\f061";
 }
-.icon-asterisk {
-  background-position: -456px -96px;
+.icon-arrow-up:before {
+  content: "\f062";
 }
-.icon-exclamation-sign {
-  background-position: 0 -120px;
+.icon-arrow-down:before {
+  content: "\f063";
 }
-.icon-gift {
-  background-position: -24px -120px;
+.icon-share-alt:before {
+  content: "\f064";
 }
-.icon-leaf {
-  background-position: -48px -120px;
+.icon-resize-full:before {
+  content: "\f065";
 }
-.icon-fire {
-  background-position: -72px -120px;
+.icon-resize-small:before {
+  content: "\f066";
 }
-.icon-eye-open {
-  background-position: -96px -120px;
+.icon-plus:before {
+  content: "\f067";
 }
-.icon-eye-close {
-  background-position: -120px -120px;
+.icon-minus:before {
+  content: "\f068";
 }
-.icon-warning-sign {
-  background-position: -144px -120px;
+.icon-asterisk:before {
+  content: "\f069";
 }
-.icon-plane {
-  background-position: -168px -120px;
+.icon-exclamation-sign:before {
+  content: "\f06a";
 }
-.icon-calendar {
-  background-position: -192px -120px;
+.icon-gift:before {
+  content: "\f06b";
 }
-.icon-random {
-  background-position: -216px -120px;
-  width: 16px;
+.icon-leaf:before {
+  content: "\f06c";
 }
-.icon-comment {
-  background-position: -240px -120px;
+.icon-fire:before {
+  content: "\f06d";
 }
-.icon-magnet {
-  background-position: -264px -120px;
+.icon-eye-open:before {
+  content: "\f06e";
 }
-.icon-chevron-up {
-  background-position: -288px -120px;
+.icon-eye-close:before {
+  content: "\f070";
 }
-.icon-chevron-down {
-  background-position: -313px -119px;
+.icon-warning-sign:before {
+  content: "\f071";
 }
-.icon-retweet {
-  background-position: -336px -120px;
+.icon-plane:before {
+  content: "\f072";
 }
-.icon-shopping-cart {
-  background-position: -360px -120px;
+.icon-calendar:before {
+  content: "\f073";
 }
-.icon-folder-close {
-  background-position: -384px -120px;
+.icon-random:before {
+  content: "\f074";
 }
-.icon-folder-open {
-  background-position: -408px -120px;
-  width: 16px;
+.icon-comment:before {
+  content: "\f075";
 }
-.icon-resize-vertical {
-  background-position: -432px -119px;
+.icon-magnet:before {
+  content: "\f076";
 }
-.icon-resize-horizontal {
-  background-position: -456px -118px;
+.icon-chevron-up:before {
+  content: "\f077";
 }
-.icon-hdd {
-  background-position: 0 -144px;
+.icon-chevron-down:before {
+  content: "\f078";
 }
-.icon-bullhorn {
-  background-position: -24px -144px;
+.icon-retweet:before {
+  content: "\f079";
 }
-.icon-bell {
-  background-position: -48px -144px;
+.icon-shopping-cart:before {
+  content: "\f07a";
 }
-.icon-certificate {
-  background-position: -72px -144px;
+.icon-folder-close:before {
+  content: "\f07b";
 }
-.icon-thumbs-up {
-  background-position: -96px -144px;
+.icon-folder-open:before {
+  content: "\f07c";
 }
-.icon-thumbs-down {
-  background-position: -120px -144px;
+.icon-resize-vertical:before {
+  content: "\f07d";
 }
-.icon-hand-right {
-  background-position: -144px -144px;
+.icon-resize-horizontal:before {
+  content: "\f07e";
 }
-.icon-hand-left {
-  background-position: -168px -144px;
+.icon-bar-chart:before {
+  content: "\f080";
 }
-.icon-hand-up {
-  background-position: -192px -144px;
+.icon-twitter-sign:before {
+  content: "\f081";
 }
-.icon-hand-down {
-  background-position: -216px -144px;
+.icon-facebook-sign:before {
+  content: "\f082";
 }
-.icon-circle-arrow-right {
-  background-position: -240px -144px;
+.icon-camera-retro:before {
+  content: "\f083";
 }
-.icon-circle-arrow-left {
-  background-position: -264px -144px;
+.icon-key:before {
+  content: "\f084";
 }
-.icon-circle-arrow-up {
-  background-position: -288px -144px;
+.icon-cogs:before {
+  content: "\f085";
 }
-.icon-circle-arrow-down {
-  background-position: -312px -144px;
+.icon-comments:before {
+  content: "\f086";
 }
-.icon-globe {
-  background-position: -336px -144px;
+.icon-thumbs-up:before {
+  content: "\f087";
 }
-.icon-wrench {
-  background-position: -360px -144px;
+.icon-thumbs-down:before {
+  content: "\f088";
 }
-.icon-tasks {
-  background-position: -384px -144px;
+.icon-star-half:before {
+  content: "\f089";
 }
-.icon-filter {
-  background-position: -408px -144px;
+.icon-heart-empty:before {
+  content: "\f08a";
 }
-.icon-briefcase {
-  background-position: -432px -144px;
+.icon-signout:before {
+  content: "\f08b";
 }
-.icon-fullscreen {
-  background-position: -456px -144px;
+.icon-linkedin-sign:before {
+  content: "\f08c";
+}
+.icon-pushpin:before {
+  content: "\f08d";
+}
+.icon-external-link:before {
+  content: "\f08e";
+}
+.icon-signin:before {
+  content: "\f090";
+}
+.icon-trophy:before {
+  content: "\f091";
+}
+.icon-github-sign:before {
+  content: "\f092";
+}
+.icon-upload-alt:before {
+  content: "\f093";
+}
+.icon-lemon:before {
+  content: "\f094";
+}
+.icon-phone:before {
+  content: "\f095";
+}
+.icon-check-empty:before {
+  content: "\f096";
+}
+.icon-bookmark-empty:before {
+  content: "\f097";
+}
+.icon-phone-sign:before {
+  content: "\f098";
+}
+.icon-twitter:before {
+  content: "\f099";
+}
+.icon-facebook:before {
+  content: "\f09a";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-unlock:before {
+  content: "\f09c";
+}
+.icon-credit-card:before {
+  content: "\f09d";
+}
+.icon-rss:before {
+  content: "\f09e";
+}
+.icon-hdd:before {
+  content: "\f0a0";
+}
+.icon-bullhorn:before {
+  content: "\f0a1";
+}
+.icon-bell:before {
+  content: "\f0a2";
+}
+.icon-certificate:before {
+  content: "\f0a3";
+}
+.icon-hand-right:before {
+  content: "\f0a4";
+}
+.icon-hand-left:before {
+  content: "\f0a5";
+}
+.icon-hand-up:before {
+  content: "\f0a6";
+}
+.icon-hand-down:before {
+  content: "\f0a7";
+}
+.icon-circle-arrow-left:before {
+  content: "\f0a8";
+}
+.icon-circle-arrow-right:before {
+  content: "\f0a9";
+}
+.icon-circle-arrow-up:before {
+  content: "\f0aa";
+}
+.icon-circle-arrow-down:before {
+  content: "\f0ab";
+}
+.icon-globe:before {
+  content: "\f0ac";
+}
+.icon-wrench:before {
+  content: "\f0ad";
+}
+.icon-tasks:before {
+  content: "\f0ae";
+}
+.icon-filter:before {
+  content: "\f0b0";
+}
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+.icon-fullscreen:before {
+  content: "\f0b2";
+}
+.icon-group:before {
+  content: "\f0c0";
+}
+.icon-link:before {
+  content: "\f0c1";
+}
+.icon-cloud:before {
+  content: "\f0c2";
+}
+.icon-beaker:before {
+  content: "\f0c3";
+}
+.icon-cut:before {
+  content: "\f0c4";
+}
+.icon-copy:before {
+  content: "\f0c5";
+}
+.icon-paper-clip:before {
+  content: "\f0c6";
+}
+.icon-save:before {
+  content: "\f0c7";
+}
+.icon-sign-blank:before {
+  content: "\f0c8";
+}
+.icon-reorder:before {
+  content: "\f0c9";
+}
+.icon-list-ul:before {
+  content: "\f0ca";
+}
+.icon-list-ol:before {
+  content: "\f0cb";
+}
+.icon-strikethrough:before {
+  content: "\f0cc";
+}
+.icon-underline:before {
+  content: "\f0cd";
+}
+.icon-table:before {
+  content: "\f0ce";
+}
+.icon-magic:before {
+  content: "\f0d0";
+}
+.icon-truck:before {
+  content: "\f0d1";
+}
+.icon-pinterest:before {
+  content: "\f0d2";
+}
+.icon-pinterest-sign:before {
+  content: "\f0d3";
+}
+.icon-google-plus-sign:before {
+  content: "\f0d4";
+}
+.icon-google-plus:before {
+  content: "\f0d5";
+}
+.icon-money:before {
+  content: "\f0d6";
+}
+.icon-caret-down:before {
+  content: "\f0d7";
+}
+.icon-caret-up:before {
+  content: "\f0d8";
+}
+.icon-caret-left:before {
+  content: "\f0d9";
+}
+.icon-caret-right:before {
+  content: "\f0da";
+}
+.icon-columns:before {
+  content: "\f0db";
+}
+.icon-sort:before {
+  content: "\f0dc";
+}
+.icon-sort-down:before {
+  content: "\f0dd";
+}
+.icon-sort-up:before {
+  content: "\f0de";
+}
+.icon-envelope-alt:before {
+  content: "\f0e0";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+.icon-undo:before {
+  content: "\f0e2";
+}
+.icon-legal:before {
+  content: "\f0e3";
+}
+.icon-dashboard:before {
+  content: "\f0e4";
+}
+.icon-comment-alt:before {
+  content: "\f0e5";
+}
+.icon-comments-alt:before {
+  content: "\f0e6";
+}
+.icon-bolt:before {
+  content: "\f0e7";
+}
+.icon-sitemap:before {
+  content: "\f0e8";
+}
+.icon-umbrella:before {
+  content: "\f0e9";
+}
+.icon-paste:before {
+  content: "\f0ea";
+}
+.icon-user-md:before {
+  content: "\f200";
 }
 .dropup,
 .dropdown {
@@ -7413,7 +7679,7 @@ a.badge:hover {
   }
   .row-fluid .span11 {
     width: 91.45299145299145%;
-    *width: 91.39979996362974%;
+    *width: 91.39979996362975%;
   }
   .row-fluid .span10 {
     width: 82.90598290598291%;
@@ -7421,7 +7687,7 @@ a.badge:hover {
   }
   .row-fluid .span9 {
     width: 74.35897435897436%;
-    *width: 74.30578286961265%;
+    *width: 74.30578286961266%;
   }
   .row-fluid .span8 {
     width: 65.81196581196582%;
@@ -7444,7 +7710,7 @@ a.badge:hover {
     *width: 31.570740134569924%;
   }
   .row-fluid .span3 {
-    width: 23.076923076923076%;
+    width: 23.076923076923077%;
     *width: 23.023731587561375%;
   }
   .row-fluid .span2 {
@@ -7485,11 +7751,11 @@ a.badge:hover {
   }
   .row-fluid .offset9:first-child {
     margin-left: 76.92307692307693%;
-    *margin-left: 76.81669394435351%;
+    *margin-left: 76.81669394435352%;
   }
   .row-fluid .offset8 {
     margin-left: 70.94017094017094%;
-    *margin-left: 70.83378796144752%;
+    *margin-left: 70.83378796144753%;
   }
   .row-fluid .offset8:first-child {
     margin-left: 68.37606837606839%;
@@ -7512,7 +7778,7 @@ a.badge:hover {
     *margin-left: 51.175668303327875%;
   }
   .row-fluid .offset5 {
-    margin-left: 45.299145299145294%;
+    margin-left: 45.299145299145295%;
     *margin-left: 45.1927623204219%;
   }
   .row-fluid .offset5:first-child {
@@ -7537,10 +7803,10 @@ a.badge:hover {
   }
   .row-fluid .offset2 {
     margin-left: 19.65811965811966%;
-    *margin-left: 19.551736679396256%;
+    *margin-left: 19.551736679396257%;
   }
   .row-fluid .offset2:first-child {
-    margin-left: 17.094017094017093%;
+    margin-left: 17.094017094017094%;
     *margin-left: 16.98763411529369%;
   }
   .row-fluid .offset1 {
@@ -7548,7 +7814,7 @@ a.badge:hover {
     *margin-left: 11.004728132387708%;
   }
   .row-fluid .offset1:first-child {
-    margin-left: 8.547008547008546%;
+    margin-left: 8.547008547008547%;
     *margin-left: 8.440625568285142%;
   }
   .row-fluid {
@@ -7606,7 +7872,7 @@ a.badge:hover {
   }
   .row-fluid .span11 {
     width: 91.45299145299145%;
-    *width: 91.39979996362974%;
+    *width: 91.39979996362975%;
   }
   .row-fluid .span10 {
     width: 82.90598290598291%;
@@ -7614,7 +7880,7 @@ a.badge:hover {
   }
   .row-fluid .span9 {
     width: 74.35897435897436%;
-    *width: 74.30578286961265%;
+    *width: 74.30578286961266%;
   }
   .row-fluid .span8 {
     width: 65.81196581196582%;
@@ -7637,7 +7903,7 @@ a.badge:hover {
     *width: 31.570740134569924%;
   }
   .row-fluid .span3 {
-    width: 23.076923076923076%;
+    width: 23.076923076923077%;
     *width: 23.023731587561375%;
   }
   .row-fluid .span2 {
@@ -7678,11 +7944,11 @@ a.badge:hover {
   }
   .row-fluid .offset9:first-child {
     margin-left: 76.92307692307693%;
-    *margin-left: 76.81669394435351%;
+    *margin-left: 76.81669394435352%;
   }
   .row-fluid .offset8 {
     margin-left: 70.94017094017094%;
-    *margin-left: 70.83378796144752%;
+    *margin-left: 70.83378796144753%;
   }
   .row-fluid .offset8:first-child {
     margin-left: 68.37606837606839%;
@@ -7705,7 +7971,7 @@ a.badge:hover {
     *margin-left: 51.175668303327875%;
   }
   .row-fluid .offset5 {
-    margin-left: 45.299145299145294%;
+    margin-left: 45.299145299145295%;
     *margin-left: 45.1927623204219%;
   }
   .row-fluid .offset5:first-child {
@@ -7730,10 +7996,10 @@ a.badge:hover {
   }
   .row-fluid .offset2 {
     margin-left: 19.65811965811966%;
-    *margin-left: 19.551736679396256%;
+    *margin-left: 19.551736679396257%;
   }
   .row-fluid .offset2:first-child {
-    margin-left: 17.094017094017093%;
+    margin-left: 17.094017094017094%;
     *margin-left: 16.98763411529369%;
   }
   .row-fluid .offset1 {
@@ -7741,7 +8007,7 @@ a.badge:hover {
     *margin-left: 11.004728132387708%;
   }
   .row-fluid .offset1:first-child {
-    margin-left: 8.547008547008546%;
+    margin-left: 8.547008547008547%;
     *margin-left: 8.440625568285142%;
   }
   input,
@@ -8110,19 +8376,19 @@ a.badge:hover {
   }
   .row-fluid .span11 {
     width: 91.43646408839778%;
-    *width: 91.38327259903607%;
+    *width: 91.38327259903608%;
   }
   .row-fluid .span10 {
     width: 82.87292817679558%;
     *width: 82.81973668743387%;
   }
   .row-fluid .span9 {
-    width: 74.30939226519336%;
+    width: 74.30939226519337%;
     *width: 74.25620077583166%;
   }
   .row-fluid .span8 {
-    width: 65.74585635359116%;
-    *width: 65.69266486422945%;
+    width: 65.74585635359117%;
+    *width: 65.69266486422946%;
   }
   .row-fluid .span7 {
     width: 57.18232044198895%;
@@ -8166,7 +8432,7 @@ a.badge:hover {
   }
   .row-fluid .offset11:first-child {
     margin-left: 94.1988950276243%;
-    *margin-left: 94.09251204890088%;
+    *margin-left: 94.09251204890089%;
   }
   .row-fluid .offset10 {
     margin-left: 88.39779005524862%;
@@ -8181,16 +8447,16 @@ a.badge:hover {
     *margin-left: 79.72787116492299%;
   }
   .row-fluid .offset9:first-child {
-    margin-left: 77.07182320441988%;
+    margin-left: 77.07182320441989%;
     *margin-left: 76.96544022569647%;
   }
   .row-fluid .offset8 {
     margin-left: 71.2707182320442%;
-    *margin-left: 71.16433525332078%;
+    *margin-left: 71.16433525332079%;
   }
   .row-fluid .offset8:first-child {
     margin-left: 68.50828729281768%;
-    *margin-left: 68.40190431409426%;
+    *margin-left: 68.40190431409427%;
   }
   .row-fluid .offset7 {
     margin-left: 62.70718232044199%;
@@ -8303,19 +8569,19 @@ a.badge:hover {
   }
   .row-fluid .span11 {
     width: 91.43646408839778%;
-    *width: 91.38327259903607%;
+    *width: 91.38327259903608%;
   }
   .row-fluid .span10 {
     width: 82.87292817679558%;
     *width: 82.81973668743387%;
   }
   .row-fluid .span9 {
-    width: 74.30939226519336%;
+    width: 74.30939226519337%;
     *width: 74.25620077583166%;
   }
   .row-fluid .span8 {
-    width: 65.74585635359116%;
-    *width: 65.69266486422945%;
+    width: 65.74585635359117%;
+    *width: 65.69266486422946%;
   }
   .row-fluid .span7 {
     width: 57.18232044198895%;
@@ -8359,7 +8625,7 @@ a.badge:hover {
   }
   .row-fluid .offset11:first-child {
     margin-left: 94.1988950276243%;
-    *margin-left: 94.09251204890088%;
+    *margin-left: 94.09251204890089%;
   }
   .row-fluid .offset10 {
     margin-left: 88.39779005524862%;
@@ -8374,16 +8640,16 @@ a.badge:hover {
     *margin-left: 79.72787116492299%;
   }
   .row-fluid .offset9:first-child {
-    margin-left: 77.07182320441988%;
+    margin-left: 77.07182320441989%;
     *margin-left: 76.96544022569647%;
   }
   .row-fluid .offset8 {
     margin-left: 71.2707182320442%;
-    *margin-left: 71.16433525332078%;
+    *margin-left: 71.16433525332079%;
   }
   .row-fluid .offset8:first-child {
     margin-left: 68.50828729281768%;
-    *margin-left: 68.40190431409426%;
+    *margin-left: 68.40190431409427%;
   }
   .row-fluid .offset7 {
     margin-left: 62.70718232044199%;
@@ -9014,7 +9280,6 @@ a.badge:hover {
 }
 .page-sidenav .active i,
 .page-sidenav .active a:hover i {
-  background-image: url(../img/glyphicons-halflings-white.png);
   opacity: 1;
 }
 .page-sidenav.affix {
@@ -9072,18 +9337,22 @@ a.badge:hover {
   padding-bottom: 40px;
 }
 .jumbotron h1 {
-  line-height: 80px;
+  line-height: 60px;
+  margin-bottom: 0;
+}
+.jumbotron {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.075);
 }
 .editable {
-  padding: 5px 10px 10px;
-  -webkit-transition: background 0.3s ease;
-  -moz-transition: background 0.3s ease;
-  -o-transition: background 0.3s ease;
-  transition: background 0.3s ease;
-  -webkit-transition: background 0.3s ease;
-  -moz-transition: background 0.3s ease;
-  -o-transition: background 0.3s ease;
-  transition: background 0.3s ease;
+  padding: 7px 10px 8px;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
 }
 .editable:hover {
   background: rgba(0, 0, 0, 0.2);
@@ -9113,6 +9382,7 @@ a.badge:hover {
   -webkit-appearance: none;
   text-rendering: optimizeLegibility;
   padding: 0;
+  margin: 0;
 }
 section .editable:hover {
   background: #fee;
@@ -9160,6 +9430,7 @@ header h1.editable input:focus {
   line-height: 1;
   font-size: 60px;
   color: #fff;
+  margin-top: -2px;
 }
 header p.editable input,
 header p.editable input:active,
@@ -9171,10 +9442,10 @@ header p.editable input:focus {
   color: #fff;
 }
 h1.edit-in-progress {
-  padding: 2px 10px 4px;
+  padding: 0px 10px 1px;
 }
 p.edit-in-progress {
-  padding: 5px 10px 1px;
+  padding: 4px 10px 9px;
 }
 .page-sidenav {
   -webkit-border-radius: 0;
@@ -9214,38 +9485,76 @@ p.edit-in-progress {
   margin-top: 40px;
   margin-bottom: 60px;
 }
-.jumbotron p {
-  margin-top: -20px;
-}
 p.lead {
   line-height: 32px;
 }
 .page-sidenav > li.add-section {
   background-color: whiteSmoke;
 }
+#gradient-editor {
+  position: fixed;
+  right: 43px;
+  z-index: 10;
+  top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+#gradient-editor.open {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
 #account-menu {
   position: fixed;
-  top: 0;
-  right: 20px;
+  top: 5px;
+  right: 5px;
   z-index: 10;
-  background-color: rgba(255, 255, 255, 0.9);
-  max-width: 400px;
   text-shadow: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 #account-menu ul {
   margin-bottom: 0;
 }
 #account-menu ul li > a {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+  color: white;
+  white-space: nowrap;
+  font-size: 13px;
+  padding: 5px;
+  text-align: right;
+  overflow: hidden;
+  display: block;
 }
-#account-menu ul li,
-#account-menu ul a {
-  color: black;
+#account-menu ul li > a span {
+  display: none;
+}
+#account-menu ul li > a:hover {
+  text-decoration: none;
+}
+#account-menu ul li > a:hover span {
+  display: block;
+}
+#account-menu ul li > a i {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: -2px;
+  -webkit-font-smoothing: antialiased;
 }
 .notice,
 .error {
