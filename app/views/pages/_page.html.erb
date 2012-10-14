@@ -14,13 +14,13 @@
       <li><a href="<%= new_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Sign In"><i class="icon-signin"></i></a></li>
     <% end %>
   </ul>
+    <% unless signed_in? %>
       <%= form_for @user, :url => '' do |f| %>
         <p><%= f.email_field :email, :placeholder => 'email@example.com' %></p>
         <p><%= f.password_field :password, :placeholder => '********' %></p>
         <p><%= f.submit "Login or Sign up" %></p>
       <% end %>
     <% end %>
-  </ul>
 </div>
 
 <div id="gradient-editor">
