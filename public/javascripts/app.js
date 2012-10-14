@@ -34,5 +34,43 @@ $(document).ready(function() {
     $(".nav-list li:not(.add-section)").last().after(nav_code);
     $("section").last().after(section_code);
   });
-  
+
+  var $leftColor = '#020031', $rightColor = '#6D3353';
+
+  function updateGradient() {
+    $('.jumbotron').css('background-image', $leftColor); /* Old browsers */
+    $('.jumbotron').css('background-image', '-moz-linear-gradient(45deg, '+$leftColor+' 0%, '+$rightColor+' 100%'); /* FF3.6+ */
+    $('.jumbotron').css('background-image', '-webkit-gradient(linear, left bottom, right top, color-stop(0%,'+$leftColor+'), color-stop(100%,'+$rightColor+')'); /* Chrome,Safari4+ */
+    $('.jumbotron').css('background-image', '-webkit-linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* Chrome10+,Safari5.1+ */
+    $('.jumbotron').css('background-image', '-o-linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* Opera 11.10+ */
+    $('.jumbotron').css('background-image', '-ms-linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* IE10+ */
+    $('.jumbotron').css('background-image', 'linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* W3C */
+    $('.jumbotron').css('filter', 'progid:DXImageTransform.Microsoft.gradient( startColorstr=\''+$leftColor+'\', endColorstr=\''+$rightColor+'\',GradientType=1 )'); /* IE6-9 fallback on horizontal gradient */
+  };
+
+  updateGradient();
+
+  $('#gradient-left-color').spectrum({
+    showInitial: true,
+    flat: true,
+    showButtons: false,
+    color: $leftColor,
+
+    move: function(color) {
+      $leftColor = color.toHexString();
+      updateGradient();
+    }
+  });
+
+  $('#gradient-right-color').spectrum({
+    showInitial: true,
+    flat: true,
+    showButtons: false,
+    color: $rightColor,
+
+    move: function(color) {
+      $rightColor = color.toHexString();
+      updateGradient();
+    }
+  });
 });
