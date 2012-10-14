@@ -17,11 +17,4 @@ $(document).ready(function() {
 	    //saveOnBlur: true,
 	    buttons: ''
 	});
-
-	$('.bs-docs-sidenav').affix({
-      offset: {
-        top: function () { return $(window).width() <= 980 ? 290 : 210 }
-      , bottom: 270
-      }
-    })
 });
