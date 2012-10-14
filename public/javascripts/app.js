@@ -35,7 +35,7 @@ $(document).ready(function() {
 
   $('.add-section').on('click', function(){
     c = $("section").size();
-    var nav_code     = "<li><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
+    var nav_code     = "<li><div class=\"remove-section\"><b class=\"icon-remove\"></b></div><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
     var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header editable\"><h2>New Section</h2></div><p class=\"lead editable\">Write your content here.</p></section>";
 
     $(".nav-list.section-nav").append(nav_code);
@@ -141,6 +141,12 @@ $(document).ready(function() {
         var $spy = $(this).scrollspy('refresh')
       });
     }
+  });
+
+  $('.remove-section').live('click', function(){
+    var section = $( $(this).parent().children("a").attr("href") );
+    $(this).parent("li").remove();
+    section.remove();
   });
 
   // Save first page state
