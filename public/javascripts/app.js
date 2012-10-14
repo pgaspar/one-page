@@ -25,4 +25,5 @@ $(document).ready(function() {
     $(".nav-list li:not(.add-section)").last().after(nav_code);
     $("section").last().after(section_code);
   });
+  
 });

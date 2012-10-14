@@ -7525,7 +7525,7 @@ a.badge:hover {
   padding: 5px 10px 10px;
 }
 .editable:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -7549,7 +7549,7 @@ a.badge:hover {
 }
 .edit-in-progress,
 .edit-in-progress:hover {
-  background: rgba(45, 188, 224, 0.3);
+  background: rgba(255, 200, 0, 0.2);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -7578,4 +7578,7 @@ h1.edit-in-progress {
 }
 p.edit-in-progress {
   padding: 5px 10px 1px;
+}
+.page-sidenav {
+  width: 250px;
 }
