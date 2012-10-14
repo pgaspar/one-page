@@ -1,0 +1,72 @@
+<header class="jumbotron subhead" id="overview">
+  <div id="account-menu">
+    <ul>
+      <% if signed_in? %>
+        <li><b><%= link_to 'Save this Page!', '#', :id => "save-link" %></b></li>
+        <li><%= link_to 'Manage your Pages', :pages %></li>
+        <li><%= link_to 'Logout', :destroy_user_session %></li>
+      <% else %>
+        <li><%= link_to 'Sign In', :new_user_session %></li>
+      <% end %>
+    </ul>
+    <br>
+    
+    <div id="gradient-editor">
+      <input type='text' id="gradient-left-color" />
+      <input type='text' id="gradient-right-color" />
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="editable"><%= @page.title %></h1>
+    <p class="lead editable"><%= @page.subtitle %></p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span3 page-sidebar">
+      <ul class="nav nav-list page-sidenav" data-spy="affix" data-offset-top="220">
+        <% @page.sections.each_with_index do |section, section_index| %>
+          <li>
+            <a href="#section-<%= section_index %>">
+              <i class="icon-chevron-right"></i> <%= section.title %>
+            </a>
+          </li>
+        <% end %>
+        <li class="add-section">
+          <a href="#section-<%= @page.sections.size %>">
+            <i class="icon-plus"></i> Add Section
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="span9" id="section-container">
+      <% @page.sections.each_with_index do |section, section_index| %>
+        <section id="section-<%= section_index %>">
+          <div class="page-header">
+            <h2 class="editable"><%= section.title %></h2>
+          </div>
+          <p class="lead editable">
+            <%= section.content %>
+          </p>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= form_for(@page, :style => "display: none") do |f| %>
+  <%= f.hidden_field :gradient_left %>
+  <%= f.hidden_field :gradient_right %>
+  <%= f.hidden_field :slug, :value => @page.slug || "test-slug-#{Page.all.size}" %> <!-- TODO: fix - slugs should come from the title or something... -->
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :subtitle %>
+  
+  <span class="form-sections">
+    <%= f.fields_for :sections, @page.sections do |s| %>
+      <%= s.hidden_field :title %>
+      <%= s.hidden_field :content %>
+    <% end %>
+  </span>
+<% end %>

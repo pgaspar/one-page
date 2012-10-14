@@ -8,9 +8,12 @@ javascripts:
   defaults:
     - public/javascripts/jquery.min.js
     - public/javascripts/bootstrap.min.js
+    - public/javascripts/jquery.inlineedit.js
     - public/javascripts/rails.js
+    - public/javascripts/spectrum.js
     - public/javascripts/app.js
 
 stylesheets:
   defaults:
     - public/stylesheets/app.css
+    - public/stylesheets/spectrum.css
