@@ -85,11 +85,15 @@ $(document).ready(function() {
     var page = process_page_from_dom();
 
     $.ajax({
-      type: "PUT",
-      url: "/pages/" + page_slug + '.json',
-      data: { page: page }
-    }).done(function( msg ) {
-      alert( "Data Saved: " + msg );
+      type: page_slug ? "PUT" : "POST",
+      url: (page_slug ? "/pages/" + page_slug : '/pages') + '.json',
+      data: { page: page },
+      success: function(data) {
+        if (!page_slug) {
+          $('header').attr('data-slug', data.page.slug);
+        }
+        console.log('saved.');
+      }
     });
 
     e.preventDefault();
