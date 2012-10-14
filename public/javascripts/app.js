@@ -192,6 +192,7 @@ function save_page(user) {
   var data = {page: page};
   if (user) {
     data.user = user;
+    $('form#new_user input[type="submit"]').attr('disabled','disabled').addClass('disabled');
   }
 
   $("i.icon-save").css("color", "gray");
@@ -218,7 +219,8 @@ function save_page(user) {
       if (user) {
         $('form#new_user .alert').remove();
         $('form#new_user').prepend('<div class="alert alert-error">' + data.responseText + '</div>');
-      }      
+        $('form#new_user input[type="submit"]').removeAttr('disabled').removeClass('disabled');
+      }
     }
   });
 }

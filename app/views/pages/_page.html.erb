@@ -78,12 +78,14 @@
           <label class="control-label" for="user_email">Email</label>
           <div class="controls">
             <%= f.email_field :email, :placeholder => 'email@example.com' %>
+            <span class="help-inline">No spam here</span>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="user_password">Password</label>
           <div class="controls">
             <%= f.password_field :password, :placeholder => '********' %>
+            <span class="help-inline">6+ chars</span>
           </div>
         </div>
         <div class="control-group">
