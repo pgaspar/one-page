@@ -82,7 +82,7 @@ $(document).ready(function() {
   $('#save-link').on('click', function(e) {
     
     var page_slug = $('header').attr('data-slug');
-    var page = process_page_from_dom();
+    var page = process_page_from_dom(!page_slug);
 
     $.ajax({
       type: page_slug ? "PUT" : "POST",
@@ -90,7 +90,8 @@ $(document).ready(function() {
       data: { page: page },
       success: function(data) {
         if (!page_slug) {
-          $('header').attr('data-slug', data.page.slug);
+          window.location = "/pages/" + data.slug;
+          //$('header').attr('data-slug', data.slug);
         }
         console.log('saved.');
       }
@@ -101,7 +102,7 @@ $(document).ready(function() {
 
 });
 
-function process_page_from_dom() {
+function process_page_from_dom(is_new) {
   var page = {};
   var page_header = $('header');
 
@@ -110,13 +111,14 @@ function process_page_from_dom() {
   page.gradient_left = page_header.attr('data-gradient-left');
   page.gradient_right = page_header.attr('data-gradient-right');
 
-  page.sections = [];
+  page.sections_attributes = [];
   $('#section-container section').each(function(){
-    page.sections.push({
-      id: $(this).attr('data-id'),
+    sec = {
       title: html_or_edit_form($('h2',this)),
       content: html_or_edit_form($('p.lead',this))
-    });
+    }
+    if (!is_new) { sec["id"] = $(this).attr('data-id'); }
+    page.sections_attributes.push(sec);
   });
 
   return page;
