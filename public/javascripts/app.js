@@ -93,10 +93,7 @@ $(document).ready(function() {
 
   // Menu ---
   $('#edit-header').on('click', function(e){
-
   	$('#gradient-editor').toggleClass('open');
-  	
-
   	e.preventDefault();
   });
 
