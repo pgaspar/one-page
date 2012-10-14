@@ -8936,6 +8936,10 @@ a.badge:hover {
     margin-right: -20px;
     margin-left: -20px;
   }
+  .page-sidebar.affix {
+    position: static;
+    top: auto;
+  }
 }
 /* Landscape phones
 ------------------------- */
