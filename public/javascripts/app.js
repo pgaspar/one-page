@@ -97,7 +97,7 @@ $(document).ready(function() {
       data: { page: page },
       success: function(data) {
         if (!page_slug) {
-          window.location = "/pages/" + data.slug;
+          history.pushState({}, page.title, "/pages/" + data.slug);
           //$('header').attr('data-slug', data.slug);
         }
         saved_page = page;
