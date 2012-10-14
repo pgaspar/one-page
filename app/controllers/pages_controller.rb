@@ -26,6 +26,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.json
   def new
+    @user = User.new unless signed_in?
     @page = Page.new_with_content
 
     respond_to do |format|
@@ -42,7 +43,33 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
+
     @page = current_user.pages.new(params[:page])
+
+    unless signed_in?
+      @user = User.find_by_email(params[:user][:email])
+      if @user and @user.valid_password?(params[:user][:password])
+        sign_in @user, :event => :authentication
+      else
+        respond_to do |format|
+          format.html { render :action => "new" }
+          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        end
+        return
+      end
+      @user = User.new(params[:user])
+      if @user.save
+        sign_in @user, :event => :authentication
+      else
+        respond_to do |format|
+          format.html { render :action => "new" }
+          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        end
+        return
+      end
+    end
+
+    @page.user = current_user
 
     respond_to do |format|
       if @page.save
@@ -61,9 +88,10 @@ class PagesController < ApplicationController
     @page = current_user.pages.with_slug!(params[:id])
 
     respond_to do |format|
+      set_destroy_on_missing_sections(@page)
       if @page.update_attributes(params[:page])
         format.html { redirect_to @page, :notice => 'Page was successfully updated.' }
-        format.json { head :ok }
+        format.json { render :json => {} }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @page.errors, :status => :unprocessable_entity }
@@ -80,6 +108,17 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pages_url }
       format.json { head :ok }
+    end
+  end
+
+  private
+
+  def set_destroy_on_missing_sections(page)
+    current_sections_ids = page.sections.map(&:id).map(&:to_s)
+    params_sections_ids = params[:page][:sections_attributes].values.map { |s| s[:id] }.compact
+    remove_sections_ids = current_sections_ids - params_sections_ids
+    remove_sections_ids.each do |section_id|
+      params[:page][:sections_attributes][params[:page][:sections_attributes].size] = {:id => section_id, :_destroy => true}
     end
   end
 end

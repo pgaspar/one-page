@@ -9282,10 +9282,10 @@ a.badge:hover {
 .page-sidenav .active a:hover i {
   opacity: 1;
 }
-.page-sidenav.affix {
+.page-sidebar.affix {
   top: 40px;
 }
-.page-sidenav.affix-bottom {
+.page-sidebar.affix-bottom {
   position: absolute;
   top: auto;
   bottom: 270px;
@@ -9447,6 +9447,9 @@ h1.edit-in-progress {
 p.edit-in-progress {
   padding: 4px 10px 9px;
 }
+.page-sidebar {
+  margin-left: 0;
+}
 .page-sidenav {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -9461,7 +9464,8 @@ p.edit-in-progress {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.page-sidenav  > li:first-child > a {
+.page-sidenav  > li:first-child > a,
+.page-sidenav  > li:last-child > a {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -9488,7 +9492,7 @@ p.edit-in-progress {
 p.lead {
   line-height: 32px;
 }
-.page-sidenav > li.add-section {
+li.add-section {
   background-color: whiteSmoke;
 }
 #gradient-editor {
@@ -9630,4 +9634,10 @@ p.lead {
   background-color: lightgray;
   color: black;
   text-decoration: none;
+}
+.drag-highlight {
+  border: 1px solid #FCEFA1;
+  background: #FBF9EE;
+  display: block;
+  height: 37px;
 }

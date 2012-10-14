@@ -1,3 +1,6 @@
+<% content_for :title do %><%= @page.title %><% end %>
+<% content_for :description do %><%= @page.subtitle %><% end %>
+
 <div id="account-menu">
   <ul class="unstyled">
     <% if signed_in? %>
@@ -6,9 +9,16 @@
       <li><a href="<%= pages_url() %>" rel="tooltip" data-placement="left" data-original-title="Manage pages"><i class="icon-file"></i></a></li>
       <li><a href="<%= destroy_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Logout"><i class="icon-off"></i></a></li>
     <% else %>
+
       <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
       <li><a href="<%= new_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Sign In"><i class="icon-signin"></i></a></li>
-
+    <% end %>
+  </ul>
+      <%= form_for @user, :url => '' do |f| %>
+        <p><%= f.email_field :email, :placeholder => 'email@example.com' %></p>
+        <p><%= f.password_field :password, :placeholder => '********' %></p>
+        <p><%= f.submit "Login or Sign up" %></p>
+      <% end %>
     <% end %>
   </ul>
 </div>
@@ -26,23 +36,27 @@
   </div>
 </header>
 
-<div class="container">
+<div id="page" class="container">
   <div class="row">
-    <div class="span3 page-sidebar">
-      <ul class="nav nav-list page-sidenav span3" data-spy="affix" data-offset-top="220">
-        <% @page.sections.each_with_index do |section, section_index| %>
-          <li>
-            <a href="#section-<%= section_index %>">
-              <i class="icon-chevron-right"></i> <%= section.title %>
+    <div class="span3">
+      <div class="span3 page-sidebar" data-spy="affix" data-offset-top="220">
+        <ul class="nav nav-list page-sidenav section-nav">
+          <% @page.sections.each_with_index do |section, section_index| %>
+            <li>
+              <a href="#section-<%= section_index %>" data-id="<%= section.id %>">
+                <i class="icon-chevron-right"></i> <%= section.title %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="nav nav-list page-sidenav">
+          <li class="add-section">
+            <a href="#section-<%= @page.sections.size %>">
+              <i class="icon-plus"></i> Add Section
             </a>
           </li>
-        <% end %>
-        <li class="add-section">
-          <a href="#section-<%= @page.sections.size %>">
-            <i class="icon-plus"></i> Add Section
-          </a>
-        </li>
-      </ul>
+        </ul>
+      </div>
     </div>
     <div class="span9" id="section-container">
       <% @page.sections.each_with_index do |section, section_index| %>
