@@ -1,6 +1,6 @@
 Railsrumble::Application.routes.draw do
   
-  resources :pages
+  resources :pages, :except => [:edit]
 
   devise_for :users, :controllers => { :sessions => "sessions" }
 

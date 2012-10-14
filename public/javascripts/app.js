@@ -103,28 +103,16 @@ $(document).ready(function() {
   //--- Menu
 
   $('#save-link').on('click', function(e) {
-    
-    var page_slug = $('header').attr('data-slug');
-    var page = process_page_from_dom();
+    save_page(null);
+    e.preventDefault();
+  });
 
-    $("i.icon-save").css("color", "gray");
-
-    $.ajax({
-      type: page_slug ? "PUT" : "POST",
-      url: (page_slug ? "/pages/" + page_slug : '/pages') + '.json',
-      data: { page: page },
-      success: function(data) {
-        if (!page_slug) {
-          history.pushState({}, page.title, "/pages/" + data.slug);
-        }
-        saved_page = page;
-        $('title').html(page.title);
-        $('meta[name=description]').attr('content', page.subtitle);
-        $("i.icon-save").css("color", "limegreen").delay(1000).animate({color: "#FFF"}, 300);
-        console.log('saved.');
-      }
-    });
-
+  $('form#new_user').submit(function(e){
+    var user = {
+      email: $('#user_email').val(),
+      password: $('#user_password').val()
+    };
+    save_page(user);
     e.preventDefault();
   });
 
@@ -169,13 +157,13 @@ $(window).bind('beforeunload', function(){
     return 'There are unsaved changes on this page.';
   }
 });
+
 // FUNCTIONS
 
 function process_page_from_dom() {
   var page = {};
   var page_header = $('header');
   var page_slug = $('header').attr('data-slug');
-  var is_new = !page_slug;
 
   page.title = html_or_edit_form($('header h1'));
   page.subtitle = html_or_edit_form($('header p'));
@@ -184,12 +172,10 @@ function process_page_from_dom() {
 
   page.sections_attributes = [];
   $('#section-container section').each(function(){
-    sec = {
+    page.sections_attributes.push({
       title: html_or_edit_form($('h2',this)),
       content: html_or_edit_form($('p.lead',this))
-    }
-    if (!is_new) { sec["id"] = $(this).attr('data-id'); }
-    page.sections_attributes.push(sec);
+    });
   });
 
   return page;
@@ -201,4 +187,43 @@ function html_or_edit_form(scope) {
 
 function page_changed() {
   return JSON.stringify(saved_page) !== JSON.stringify(process_page_from_dom());
+}
+
+function save_page(user) {
+  var page_slug = $('header').attr('data-slug');
+  var page = process_page_from_dom();
+  var data = {page: page};
+  if (user) {
+    data.user = user;
+    $('form#new_user input[type="submit"]').attr('disabled','disabled').addClass('disabled');
+  }
+
+  $("i.icon-save").css("color", "gray");
+
+  $.ajax({
+    type: page_slug ? "PUT" : "POST",
+    url: (page_slug ? "/pages/" + page_slug : '/pages') + '.json',
+    data: data,
+    success: function(data) {
+      if (!page_slug) {
+        if (user) {
+          window.location = "/pages/" + data.slug;
+        } else {
+          history.pushState({}, page.title, "/pages/" + data.slug);
+        }
+      }
+      saved_page = page;
+      $('title').html(page.title);
+      $('meta[name=description]').attr('content', page.subtitle);
+      $("i.icon-save").css("color", "limegreen").delay(1000).animate({color: "#FFF"}, 300);
+      console.log('saved.');
+    },
+    error: function(data) {
+      if (user) {
+        $('form#new_user .alert').remove();
+        $('form#new_user').prepend('<div class="alert alert-error">' + data.responseText + '</div>');
+        $('form#new_user input[type="submit"]').removeAttr('disabled').removeClass('disabled');
+      }
+    }
+  });
 }

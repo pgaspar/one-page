@@ -16,3 +16,5 @@ gem 'rush'
 gem 'jammit'
 
 gem "unidecode" # For slug generation
+
+gem 'mina'
