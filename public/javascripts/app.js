@@ -109,7 +109,26 @@ $(document).ready(function() {
   });
 
   $(".nav-list").sortable({
-    placeholder: "drag-highlight"
+    placeholder: "drag-highlight",
+    axis: "y",
+    cursor: "move",
+    delay: "200",
+
+    update: function(e, ui) {
+      var i = ui.item.index() + 1;
+      id = $("a", ui.item).attr("href");
+      var section = $(id);
+
+      if (section.index()+1 > i) {
+        $("#section-container section:nth-child(" + i + ")").before(section);
+      } else {
+        $("#section-container section:nth-child(" + i + ")").after(section);  
+      }
+
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this).scrollspy('refresh')
+      });
+    }
   });
 
 });
