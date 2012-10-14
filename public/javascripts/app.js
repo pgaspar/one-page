@@ -19,14 +19,18 @@ $(document).ready(function() {
 	});
 
   $('.add-section').on('click', function(){
-    var nav_code     = "<li><a href=\"#section-" + $("section").size() + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
-    var section_code = "<section id=\"section-" + $("section").size() + "\"><div class=\"page-header\"><h1>New Section</h1></div><p class=\"editable\">Write your content here.</p></section>";
+    c = $("section").size();
+    var nav_code     = "<li><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> New Section</a></li>";
+    var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header\"><h1>New Section</h1></div><p class=\"editable\">Write your content here.</p></section>";
+    var form_code    = "<input id=\"page_sections_attributes_"+c+"_title\" name=\"page[sections_attributes]["+c+"][title]\" type=\"hidden\" value=\"New Section\"><input id=\"page_sections_attributes_"+c+"_content\" name=\"page[sections_attributes]["+c+"][content]\" type=\"hidden\" value=\"Write your content here.\">";
 
-    $(".nav-list li:not(.add-section)").last().after(nav_code);
-    $("section").last().after(section_code);
+    $(".nav-list li.add-section").before(nav_code);
+    $("#section-container").append(section_code);
+    $('span.form-sections').append(form_code);
   });
 
-  var $leftColor = '#020031', $rightColor = '#6D3353';
+  var $leftColor  = $('form input#page_gradient_left').val() || '#020031';
+  var $rightColor = $('form input#page_gradient_right').val() || '#6D3353';
 
   function updateGradient() {
     $('.jumbotron').css('background-image', $leftColor); /* Old browsers */
@@ -37,6 +41,9 @@ $(document).ready(function() {
     $('.jumbotron').css('background-image', '-ms-linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* IE10+ */
     $('.jumbotron').css('background-image', 'linear-gradient(45deg, '+$leftColor+' 0%,'+$rightColor+' 100%)'); /* W3C */
     $('.jumbotron').css('filter', 'progid:DXImageTransform.Microsoft.gradient( startColorstr=\''+$leftColor+'\', endColorstr=\''+$rightColor+'\',GradientType=1 )'); /* IE6-9 fallback on horizontal gradient */
+
+    $('form input#page_gradient_left').val($leftColor);
+    $('form input#page_gradient_right').val($rightColor);
   };
 
   updateGradient();
@@ -63,5 +70,10 @@ $(document).ready(function() {
       $rightColor = color.toHexString();
       updateGradient();
     }
+  });
+
+  $('#save-link').on('click', function(e) {
+    $('form').submit();
+    e.preventDefault();
   });
 });

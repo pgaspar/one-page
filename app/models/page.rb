@@ -6,6 +6,10 @@ class Page
   field :slug
   field :title
   field :subtitle
+
+  field :gradient_left
+  field :gradient_right
+
   has_mongoid_attached_file :cover_photo
 
   belongs_to :user
@@ -18,6 +22,8 @@ class Page
                    		:length => { :within => 3..24 }
   validates :title, 	:presence => true
   validates :subtitle, 	:length => { :maximum => 500 }
+
+  accepts_nested_attributes_for :sections
 
   def to_param
     slug
