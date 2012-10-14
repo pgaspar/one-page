@@ -9025,3 +9025,6 @@ a.badge:hover {
   top: auto;
   bottom: 270px;
 }
+#page-container {
+  padding-bottom: 40px;
+}
