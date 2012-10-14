@@ -19,7 +19,6 @@ $(document).ready(function() {
 	    save: function(e, data) {
 	    	target = $(this).data('target');
 	    	$("a[href=#"+target+"] span").html(data.value);
-        console.log( data );
 	    },
 	    saveOnBlur: true,
 	    buttons: ''
@@ -38,10 +37,14 @@ $(document).ready(function() {
   $('.add-section').on('click', function(){
     c = $("section").size();
     var nav_code     = "<li><div class=\"remove-section\"><b class=\"icon-remove\"></b></div><a href=\"#section-" + c + "\"><i class=\"icon-chevron-right\"></i> <span>New Section</span></a></li>";
-    var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header editable\"><h2>New Section</h2></div><p class=\"lead editable\">Write your content here.</p></section>";
+    var section_code = "<section id=\"section-" + c + "\"><div class=\"page-header\"><h2 class=\"editable\" data-target=\"section-"+c+"\">New Section</h2></div><p class=\"lead editable\">Write your content here.</p></section>";
 
     $(".nav-list.section-nav").append(nav_code);
     $("#section-container").append(section_code);
+
+    $('[data-spy="scroll"]').each(function () {
+      var $spy = $(this).scrollspy('refresh');
+    });
   });
 
   var $leftColor  = $('header').attr('data-gradient-left') || '#020031';
@@ -125,7 +128,7 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $(".nav-list").sortable({
+  $(".nav-list.do-draggable").sortable({
     placeholder: "drag-highlight",
     axis: "y",
     cursor: "move",
