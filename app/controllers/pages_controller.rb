@@ -35,10 +35,6 @@ class PagesController < ApplicationController
     end
   end
 
-  # GET /pages/1/edit
-  def edit
-    @page = current_user.pages.with_slug!(params[:id])
-  end
 
   # POST /pages
   # POST /pages.json
