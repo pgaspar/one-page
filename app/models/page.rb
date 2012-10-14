@@ -1,7 +1,6 @@
 class Page
   include Mongoid::Document
   include Mongoid::Timestamps::Created
-  include Mongoid::Paperclip
   
   field :slug
   field :title
@@ -9,8 +8,6 @@ class Page
 
   field :gradient_left
   field :gradient_right
-
-  has_mongoid_attached_file :cover_photo
 
   belongs_to :user
   embeds_many :sections
