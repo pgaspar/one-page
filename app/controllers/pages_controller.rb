@@ -86,10 +86,12 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = current_user.pages.with_slug!(params[:id])
+    @page.attributes = params[:page]
 
     respond_to do |format|
-      set_destroy_on_missing_sections(@page)
-      if @page.update_attributes(params[:page])
+      if @page.valid?
+        @page.sections.destroy_all
+        @page.update_attributes(params[:page])
         format.html { redirect_to @page, :notice => 'Page was successfully updated.' }
         format.json { render :json => {} }
       else
@@ -111,14 +113,4 @@ class PagesController < ApplicationController
     end
   end
 
-  private
-
-  def set_destroy_on_missing_sections(page)
-    current_sections_ids = page.sections.map(&:id).map(&:to_s)
-    params_sections_ids = params[:page][:sections_attributes].values.map { |s| s[:id] }.compact
-    remove_sections_ids = current_sections_ids - params_sections_ids
-    remove_sections_ids.each do |section_id|
-      params[:page][:sections_attributes][params[:page][:sections_attributes].size] = {:id => section_id, :_destroy => true}
-    end
-  end
 end

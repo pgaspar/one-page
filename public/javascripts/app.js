@@ -142,13 +142,13 @@ $(window).bind('beforeunload', function(){
     return 'There are unsaved changes on this page.';
   }
 });
+
 // FUNCTIONS
 
 function process_page_from_dom() {
   var page = {};
   var page_header = $('header');
   var page_slug = $('header').attr('data-slug');
-  var is_new = !page_slug;
 
   page.title = html_or_edit_form($('header h1'));
   page.subtitle = html_or_edit_form($('header p'));
@@ -157,12 +157,10 @@ function process_page_from_dom() {
 
   page.sections_attributes = [];
   $('#section-container section').each(function(){
-    sec = {
+    page.sections_attributes.push({
       title: html_or_edit_form($('h2',this)),
       content: html_or_edit_form($('p.lead',this))
-    }
-    if (!is_new) { sec["id"] = $(this).attr('data-id'); }
-    page.sections_attributes.push(sec);
+    });
   });
 
   return page;
