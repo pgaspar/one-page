@@ -42,14 +42,12 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    require 'pp'
-    pp params[:page]
     @page = current_user.pages.new(params[:page])
 
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, :notice => 'Page was successfully created.' }
-        format.json { puts "hi!"; render :json => @page, :status => :created, :location => @page }
+        format.json { render :json => @page, :status => :created, :location => @page }
       else
         format.html { render :action => "new" }
         format.json { render :json => @page.errors, :status => :unprocessable_entity }
@@ -63,9 +61,10 @@ class PagesController < ApplicationController
     @page = current_user.pages.with_slug!(params[:id])
 
     respond_to do |format|
+      set_destroy_on_missing_sections(@page)
       if @page.update_attributes(params[:page])
         format.html { redirect_to @page, :notice => 'Page was successfully updated.' }
-        format.json { head :ok }
+        format.json { render :json => {} }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @page.errors, :status => :unprocessable_entity }
@@ -82,6 +81,17 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pages_url }
       format.json { head :ok }
+    end
+  end
+
+  private
+
+  def set_destroy_on_missing_sections(page)
+    current_sections_ids = page.sections.map(&:id).map(&:to_s)
+    params_sections_ids = params[:page][:sections_attributes].values.map { |s| s[:id] }.compact
+    remove_sections_ids = current_sections_ids - params_sections_ids
+    remove_sections_ids.each do |section_id|
+      params[:page][:sections_attributes][params[:page][:sections_attributes].size] = {:id => section_id, :_destroy => true}
     end
   end
 end

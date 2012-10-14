@@ -1,4 +1,11 @@
+var saved_page;
+
 $(document).ready(function() {
+
+  saved_page = process_page_from_dom();
+
+  // UI-UX
+
 	$('header .editable').inlineEdit({
 	    save: function(e, data) {
 	    	target = $(this).data('target');
@@ -82,7 +89,7 @@ $(document).ready(function() {
   $('#save-link').on('click', function(e) {
     
     var page_slug = $('header').attr('data-slug');
-    var page = process_page_from_dom(!page_slug);
+    var page = process_page_from_dom();
 
     $.ajax({
       type: page_slug ? "PUT" : "POST",
@@ -93,6 +100,7 @@ $(document).ready(function() {
           window.location = "/pages/" + data.slug;
           //$('header').attr('data-slug', data.slug);
         }
+        saved_page = page;
         console.log('saved.');
       }
     });
@@ -106,9 +114,18 @@ $(document).ready(function() {
 
 });
 
-function process_page_from_dom(is_new) {
+$(window).bind('beforeunload', function(){
+  if (page_changed()) {
+    return 'There are unsaved changes on this page.';
+  }
+});
+// FUNCTIONS
+
+function process_page_from_dom() {
   var page = {};
   var page_header = $('header');
+  var page_slug = $('header').attr('data-slug');
+  var is_new = !page_slug;
 
   page.title = html_or_edit_form($('header h1'));
   page.subtitle = html_or_edit_form($('header p'));
@@ -129,5 +146,9 @@ function process_page_from_dom(is_new) {
 }
 
 function html_or_edit_form(scope) {
-  return $('textarea',scope).html() || $('input',scope).val() || scope.html();
+  return $.trim($('textarea',scope).html() || $('input',scope).val() || scope.html());
+}
+
+function page_changed() {
+  return JSON.stringify(saved_page) !== JSON.stringify(process_page_from_dom());
 }

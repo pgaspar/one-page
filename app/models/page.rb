@@ -23,7 +23,7 @@ class Page
   validates :title, 	:presence => true
   validates :subtitle, 	:length => { :maximum => 500 }
 
-  accepts_nested_attributes_for :sections
+  accepts_nested_attributes_for :sections, :allow_destroy => true
 
   before_validation :set_slug
 
