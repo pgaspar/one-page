@@ -19,10 +19,6 @@ $(document).ready(function() {
 	    save: function(e, data) {
 	    	target = $(this).data('target');
 	    	$("a[href=#"+target+"] span").html(data.value);
-<<<<<<< HEAD
-        console.log( data );
-=======
->>>>>>> 62a15701b37a6c47dddaa77a007a6a0b997c1738
 	    },
 	    saveOnBlur: true,
 	    buttons: ''
