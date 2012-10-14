@@ -7681,7 +7681,7 @@ p.edit-in-progress {
 p.lead {
   line-height: 32px;
 }
-.page-sidenav > li.add-section {
+li.add-section {
   background-color: whiteSmoke;
 }
 #account-menu {
