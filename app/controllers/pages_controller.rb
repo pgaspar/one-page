@@ -26,6 +26,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.json
   def new
+    @user = User.new unless signed_in?
     @page = Page.new_with_content
 
     respond_to do |format|
@@ -42,7 +43,33 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
+
     @page = current_user.pages.new(params[:page])
+
+    unless signed_in?
+      @user = User.find_by_email(params[:user][:email])
+      if @user and @user.valid_password?(params[:user][:password])
+        sign_in @user, :event => :authentication
+      else
+        respond_to do |format|
+          format.html { render :action => "new" }
+          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        end
+        return
+      end
+      @user = User.new(params[:user])
+      if @user.save
+        sign_in @user, :event => :authentication
+      else
+        respond_to do |format|
+          format.html { render :action => "new" }
+          format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        end
+        return
+      end
+    end
+
+    @page.user = current_user
 
     respond_to do |format|
       if @page.save

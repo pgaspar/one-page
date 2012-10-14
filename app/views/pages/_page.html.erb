@@ -8,15 +8,20 @@
       <li><%= link_to 'Manage your Pages', :pages %></li>
       <li><%= link_to 'Logout', :destroy_user_session %></li>
     <% else %>
-      <li><%= link_to 'Sign In', :new_user_session %></li>
+      <%= form_for @user, :url => '' do |f| %>
+        <p><%= f.email_field :email, :placeholder => 'email@example.com' %></p>
+        <p><%= f.password_field :password, :placeholder => '********' %></p>
+        <p><%= f.submit "Login or Sign up" %></p>
+      <% end %>
     <% end %>
   </ul>
   <br>
-  
+  <!--
   <div id="gradient-editor">
     <input type='text' id="gradient-left-color" />
     <input type='text' id="gradient-right-color" />
   </div>
+-->
 </div>
 
 <header class="jumbotron subhead" id="overview" data-slug="<%= @page.slug %>" data-gradient-left="<%= @page.gradient_left %>" data-gradient-right="<%= @page.gradient_right %>">

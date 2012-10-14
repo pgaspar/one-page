@@ -2,8 +2,6 @@ var saved_page;
 
 $(document).ready(function() {
 
-  saved_page = process_page_from_dom();
-
   // UI-UX
 
 	$('header .editable').inlineEdit({
@@ -112,6 +110,11 @@ $(document).ready(function() {
   $(".nav-list").sortable({
     placeholder: "drag-highlight"
   });
+
+  // Save first page state
+  if ($('#page').size() > 0) {
+    saved_page = process_page_from_dom();
+  }
 
 });
 
