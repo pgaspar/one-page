@@ -73,7 +73,7 @@ class PagesController < ApplicationController
     end
 
     @page.user = current_user
-
+    
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, :notice => 'Page was successfully created.' }

@@ -10,7 +10,7 @@
       <li><a href="<%= pages_path %>" rel="tooltip" data-placement="left" data-original-title="Manage pages"><i class="icon-file"></i></a></li>
       <li><a href="<%= destroy_user_session_url() %>" rel="tooltip" data-placement="left" data-original-title="Logout"><i class="icon-off"></i></a></li>
     <% else %>
-      <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-cogs"></i></a></li>
+      <li><a href="#" rel="tooltip" id="edit-header" data-placement="left" data-original-title="Edit header"><i class="icon-edit"></i></a></li>
       <li><a href="#modal-login" rel="tooltip" data-placement="left" data-original-title="Save page" data-toggle="modal"><i class="icon-save"></i></a></li>
     <% end %>
   </ul>
@@ -24,8 +24,8 @@
 
 <header class="jumbotron subhead" id="overview" data-slug="<%= @page.slug %>" data-gradient-left="<%= @page.gradient_left %>" data-gradient-right="<%= @page.gradient_right %>">
   <div class="container">
-    <h1 class="<%= "editable" if signed_in? %>"><%= @page.title %></h1>
-    <p class="lead <%= "editable" if signed_in? %>"><%= @page.subtitle %></p>
+    <h1 class="<%= "editable" if signed_in? or @page.new_record? %>"><%= @page.title %></h1>
+    <p class="lead <%= "editable" if signed_in? or @page.new_record? %>"><%= @page.subtitle %></p>
   </div>
 </header>
 
@@ -33,17 +33,17 @@
   <div class="row">
     <div class="span3">
       <div class="span3 page-sidebar" data-spy="affix" data-offset-top="220">
-        <ul class="nav nav-list page-sidenav section-nav <%= "do-draggable" if signed_in? %>">
+        <ul class="nav nav-list page-sidenav section-nav <%= "do-draggable" if signed_in? or @page.new_record? %>">
           <% @page.sections.each_with_index do |section, section_index| %>
             <li>
-              <% if signed_in? %><div class="remove-section"><b class="icon-remove"></b></div><% end %>
+              <% if signed_in? or @page.new_record? %><div class="remove-section"><b class="icon-remove"></b></div><% end %>
               <a href="#section-<%= section_index %>">
                 <i class="icon-chevron-right"></i> <span><%= section.title %></span>
               </a>
             </li>
           <% end %>
         </ul>
-        <% if signed_in? %>
+        <% if signed_in? or @page.new_record? %>
           <ul class="nav nav-list page-sidenav">
             <li class="add-section">
               <a href="#">
@@ -58,9 +58,9 @@
       <% @page.sections.each_with_index do |section, section_index| %>
         <section id="section-<%= section_index %>" data-id="<%= section.id %>">
           <div class="page-header">
-            <h2 class="<%= "editable" if signed_in? %>" data-target="section-<%= section_index %>"><%= section.title %></h2>
+            <h2 class="<%= "editable" if signed_in? or @page.new_record? %>" data-target="section-<%= section_index %>"><%= section.title %></h2>
           </div>
-          <p class="lead <%= "editable" if signed_in? %>">
+          <p class="lead <%= "editable" if signed_in? or @page.new_record? %>">
             <%= section.content %>
           </p>
         </section>
